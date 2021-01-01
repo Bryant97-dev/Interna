@@ -10,4 +10,12 @@ class Lecturer extends Model
     use HasFactory;
 
     protected $table = 'interna_lecturers';
+
+    public function jakas(){
+        return $this->belongsTo(Jaka::class, 'jaka_id', 'id');
+    }
+
+    public function positions(){
+        return $this->belongsTo(Position::class, 'position_id', 'id');
+    }
 }

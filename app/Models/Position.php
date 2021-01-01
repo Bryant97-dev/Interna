@@ -10,4 +10,8 @@ class Position extends Model
     use HasFactory;
 
     protected $table = 'interna_positions';
+
+    public function lecturers() {
+        return $this->hasMany(Lecturer::class, 'position_id', 'id');
+    }
 }

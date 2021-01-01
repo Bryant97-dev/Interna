@@ -10,4 +10,8 @@ class Report extends Model
     use HasFactory;
 
     protected $table = 'interna_reports';
+
+    public function users(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

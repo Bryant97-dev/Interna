@@ -78,4 +78,24 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Company::class);
     }
+
+    public function periods(){
+        return $this->belongsTo(Period::class, 'period_id', 'id');
+    }
+
+    public function study_programs(){
+        return $this->belongsTo(StudyProgram::class, 'study_program_id', 'id');
+    }
+
+    public function reports() {
+        return $this->hasMany(Report::class, 'user_id', 'id');
+    }
+
+    public function scores() {
+        return $this->hasMany(Score::class, 'user_id', 'id');
+    }
+
+    public function administrative_data() {
+        return $this->hasMany(AdministrativeData::class, 'user_id', 'id');
+    }
 }
