@@ -20,10 +20,10 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="studyprogram" value="{{ __('Study Program') }}" />
-                <select id="studyprogram" name="studyprogram" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md block mt-1 w-full" required>
-                    @foreach ($studyprograms as $studyprogram)
-                        <option value="{{ $studyprogram->id }}">{{$studyprogram->abbreviation . ' (' . $studyprogram->study_program .')'}}</option>
+                <x-jet-label for="study_program_id" value="{{ __('Study Program') }}" />
+                <select id="study_program_id" name="study_program_id" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md block mt-1 w-full" required>
+                    @foreach ($study_programs as $study_program)
+                        <option value="{{ $study_program->id }}">{{$study_program->abbreviation . ' (' . $study_program->study_program .')'}}</option>
                     @endforeach
                 </select>
             </div>
