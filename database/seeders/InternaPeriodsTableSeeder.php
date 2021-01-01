@@ -16,13 +16,10 @@ class InternaPeriodsTableSeeder extends Seeder
     {
         $periods = [
             [
-                'period'    => 'Lifetime',
+                'period'    => 'Ganjil/2021-2022',
             ],
             [
-                'period'    => 'Ganjil/2020-2021',
-            ],
-            [
-                'period'    => 'Genap/2020-2021',
+                'period'    => 'Genap/2021-2022',
             ],
         ];
 
