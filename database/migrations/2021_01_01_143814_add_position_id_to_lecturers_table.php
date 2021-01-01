@@ -13,8 +13,9 @@ class AddPositionIdToLecturersTable extends Migration
      */
     public function up()
     {
-        Schema::table('lecturers', function (Blueprint $table) {
-            //
+        Schema::table('interna_lecturers', function (Blueprint $table) {
+            $table->unsignedBigInteger('position_id')->index()->after('id');
+            $table->foreign('position_id')->references('id')->on('interna_positions')->onDelete('cascade');
         });
     }
 
@@ -25,8 +26,8 @@ class AddPositionIdToLecturersTable extends Migration
      */
     public function down()
     {
-        Schema::table('lecturers', function (Blueprint $table) {
-            //
+        Schema::table('interna_lecturers', function (Blueprint $table) {
+            $table->dropColumn('position_id');
         });
     }
 }

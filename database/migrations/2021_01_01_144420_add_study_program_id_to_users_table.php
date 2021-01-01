@@ -14,7 +14,8 @@ class AddStudyProgramIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->unsignedBigInteger('study_program_id')->index()->after('id');
+            $table->foreign('study_program_id')->references('id')->on('interna_study_programs')->onDelete('cascade');
         });
     }
 
@@ -26,7 +27,7 @@ class AddStudyProgramIdToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('study_program_id');
         });
     }
 }

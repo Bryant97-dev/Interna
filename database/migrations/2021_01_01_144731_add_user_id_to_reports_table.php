@@ -13,8 +13,9 @@ class AddUserIdToReportsTable extends Migration
      */
     public function up()
     {
-        Schema::table('reports', function (Blueprint $table) {
-            //
+        Schema::table('interna_reports', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->index()->after('id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -25,8 +26,8 @@ class AddUserIdToReportsTable extends Migration
      */
     public function down()
     {
-        Schema::table('reports', function (Blueprint $table) {
-            //
+        Schema::table('interna_reports', function (Blueprint $table) {
+            $table->dropColumn('user_id');
         });
     }
 }

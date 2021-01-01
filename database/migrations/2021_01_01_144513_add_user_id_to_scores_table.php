@@ -13,8 +13,9 @@ class AddUserIdToScoresTable extends Migration
      */
     public function up()
     {
-        Schema::table('scores', function (Blueprint $table) {
-            //
+        Schema::table('interna_scores', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->index()->after('id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -25,8 +26,8 @@ class AddUserIdToScoresTable extends Migration
      */
     public function down()
     {
-        Schema::table('scores', function (Blueprint $table) {
-            //
+        Schema::table('interna_scores', function (Blueprint $table) {
+            $table->dropColumn('user_id');
         });
     }
 }

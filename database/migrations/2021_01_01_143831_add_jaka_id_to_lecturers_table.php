@@ -13,8 +13,9 @@ class AddJakaIdToLecturersTable extends Migration
      */
     public function up()
     {
-        Schema::table('lecturers', function (Blueprint $table) {
-            //
+        Schema::table('interna_lecturers', function (Blueprint $table) {
+            $table->unsignedBigInteger('jaka_id')->index()->after('id');
+            $table->foreign('jaka_id')->references('id')->on('interna_jakas')->onDelete('cascade');
         });
     }
 
@@ -25,8 +26,8 @@ class AddJakaIdToLecturersTable extends Migration
      */
     public function down()
     {
-        Schema::table('lecturers', function (Blueprint $table) {
-            //
+        Schema::table('interna_lecturers', function (Blueprint $table) {
+            $table->dropColumn('jaka_id');
         });
     }
 }

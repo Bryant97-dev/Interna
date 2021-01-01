@@ -13,8 +13,9 @@ class AddStudyProgramIdToTimelinesTable extends Migration
      */
     public function up()
     {
-        Schema::table('timelines', function (Blueprint $table) {
-            //
+        Schema::table('interna_timelines', function (Blueprint $table) {
+            $table->unsignedBigInteger('study_program_id')->index()->after('id');
+            $table->foreign('study_program_id')->references('id')->on('interna_study_programs')->onDelete('cascade');
         });
     }
 
@@ -25,8 +26,8 @@ class AddStudyProgramIdToTimelinesTable extends Migration
      */
     public function down()
     {
-        Schema::table('timelines', function (Blueprint $table) {
-            //
+        Schema::table('interna_timelines', function (Blueprint $table) {
+            $table->dropColumn('study_program_id');
         });
     }
 }
