@@ -11,6 +11,11 @@ class StudyProgram extends Model
 
     protected $table = 'interna_study_programs';
 
+    protected $fillable = [
+        'abbreviation',
+        'study_program',
+    ];
+
     public function users() {
         return $this->hasMany(User::class, 'study_program_id', 'id');
     }

@@ -11,6 +11,10 @@ class Period extends Model
 
     protected $table = 'interna_periods';
 
+    protected $fillable = [
+        'period',
+    ];
+
     public function users() {
         return $this->hasMany(User::class, 'period_id', 'id');
     }

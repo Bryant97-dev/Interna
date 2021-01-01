@@ -11,18 +11,25 @@ class UsersTableSeeder extends Seeder
     {
         $users = [
             [
-                'id'             => 1,
-                'name'           => 'Admin',
-                'email'          => 'admin@admin.com',
-                'password'       => bcrypt('password'),
-                'remember_token' => null,
+                'study_program_id'  => 8,
+                'period_id'         => 1,
+                'name'              => 'Franciscus Valentinus Ongkosianbhadra',
+                'email'             => 'fvalentinus@student.ciputra.ac.id',
+                'password'          => bcrypt('password'),
             ],
             [
-                'id'             => 2,
-                'name'           => 'User',
-                'email'          => 'user@user.com',
-                'password'       => bcrypt('password'),
-                'remember_token' => null,
+                'study_program_id'  => 8,
+                'period_id'         => 1,
+                'name'              => 'Bryant Lee Tjandra',
+                'email'             => 'btjandra.ciputra.ac.id',
+                'password'          => bcrypt('password'),
+            ],
+            [
+                'study_program_id'  => 8,
+                'period_id'         => 1,
+                'name'              => 'Javier',
+                'email'             => 'jemmanuel@student.ciputra.ac.id',
+                'password'          => bcrypt('password'),
             ],
         ];
 

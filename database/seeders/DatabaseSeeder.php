@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             PermissionsTableSeeder::class,
             RolesTableSeeder::class,
             PermissionRoleTableSeeder::class,
+            InternaPeriodsTableSeeder::class,
+            InternaStudyProgramsTableSeeder::class,
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
         ]);
