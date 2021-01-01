@@ -14,7 +14,7 @@ class AddPeriodIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('period_id')->index()->after('id')->nullable();
+            $table->unsignedBigInteger('period_id')->index()->after('id');
             $table->foreign('period_id')->references('id')->on('interna_periods')->onDelete('cascade');
         });
     }
