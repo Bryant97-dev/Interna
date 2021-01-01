@@ -29,6 +29,15 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="period_id" value="{{ __('Period') }}" />
+                <select id="period_id" name="period_id" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md block mt-1 w-full" required>
+                    @foreach ($periods as $period)
+                        <option value="{{ $period->id }}">{{$period->period}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
