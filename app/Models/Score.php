@@ -11,6 +11,13 @@ class Score extends Model
 
     protected $table = 'interna_scores';
 
+    protected $fillable = [
+        'title',
+        'score',
+        'description',
+        'user_id',
+    ];
+
     public function users(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }

@@ -11,6 +11,15 @@ class Company extends Model
 
     protected $table = 'interna_companies';
 
+    protected $fillable = [
+        'name',
+        'address',
+        'supervisor',
+        'email',
+        'phone',
+        'npwp',
+    ];
+
     public function users()
     {
         return $this->belongsToMany(User::class);

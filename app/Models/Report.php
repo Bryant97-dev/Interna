@@ -11,6 +11,14 @@ class Report extends Model
 
     protected $table = 'interna_reports';
 
+    protected $fillable = [
+        'title',
+        'file',
+        'description',
+        'approved',
+        'user_id',
+    ];
+
     public function users(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }

@@ -11,6 +11,10 @@ class Jaka extends Model
 
     protected $table = 'interna_jakas';
 
+    protected $fillable = [
+        'jaka',
+    ];
+
     public function lecturers() {
         return $this->hasMany(Lecturer::class, 'jaka_id', 'id');
     }

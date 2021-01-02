@@ -15,6 +15,7 @@ class Timeline extends Model
         'date',
         'title',
         'description',
+        'study_program_id',
     ];
 
     public function study_programs(){

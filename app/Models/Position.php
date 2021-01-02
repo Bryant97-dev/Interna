@@ -11,6 +11,11 @@ class Position extends Model
 
     protected $table = 'interna_positions';
 
+    protected $fillable = [
+        'abbreviation',
+        'study_program',
+    ];
+
     public function lecturers() {
         return $this->hasMany(Lecturer::class, 'position_id', 'id');
     }
