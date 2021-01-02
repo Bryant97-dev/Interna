@@ -91,17 +91,22 @@
                                 </dd>
                             </div>
                         </div>
-                        @if(empty($companies))
-                            <div class="block mb-8">
-                                <a href="{{ route('company.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Edit Data</a>
-                            </div>
-                        @else
-                            <div class="block mb-8">
-                                <a href="{{ route('company.edit', $id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Edit Data</a>
-                            </div>
-                        @endif
                     </dl>
                 </div>
+                <br/>
+                <br/>
+                <br/>
+                <center>
+                    @if(empty($companies))
+                        <div class="block mb-8">
+                            <a href="{{ route('company.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Edit Data</a>
+                        </div>
+                    @else
+                        <div class="block mb-8">
+                            <a href="{{ route('company.edit', $id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Edit Data</a>
+                        </div>
+                    @endif
+                </center>
             </div>
         </div>
     </div>
