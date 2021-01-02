@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCompanyRequest;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class CompanyController extends Controller
         $users = DB::table('company_user')->where('user_id', '=', Auth::id())->get();
         foreach ($users as $u)
         {
-            $gg[] = $u->user_id ;
+            $gg[] = $u->company_id ;
         }
         $companies = Company::find($gg);
 
@@ -76,11 +77,10 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCompanyRequest $request)
     {
-        $companies = InternaCompany::create($request->validated());
-
-        $companies->internships()->sync($request->input('internships', []));
+        $companies = Company::create($request->validated());
+        $companies->users()->sync(Auth::id());
 
         return redirect()->route('company.index');
     }
