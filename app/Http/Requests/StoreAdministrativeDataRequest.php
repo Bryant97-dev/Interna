@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class StoreAdministrativeDataRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StoreAdministrativeDataRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Gate::allows('administrative_data_access');
     }
 
     /**
@@ -24,7 +25,18 @@ class StoreAdministrativeDataRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => [
+                'required', 'string',
+            ],
+            'file' => [
+                'required',
+            ],
+            'description' => [
+                'required', 'string',
+            ],
+            'user_id' => [
+                'required', 'integer',
+            ]
         ];
     }
 }
