@@ -10,10 +10,10 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:text-center">
                     <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-5xl">
-                        {{ $name ?: 'Belum ada data perusahaan' }}
+                        {{ $name ?: 'There is no data' }}
                     </h2>
                     <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                        {{ $address ?: 'Belum ada data perusahaan' }}
+                        {{ $address ?: 'There is no data' }}
                     </p>
                 </div>
 
@@ -32,7 +32,7 @@
                                     Supervisor Name
                                 </dt>
                                 <dd class="mt-2 text-base text-gray-500">
-                                    {{ $supervisor ?: 'Belum ada data perusahaan' }}
+                                    {{ $supervisor ?: 'There is no data' }}
                                 </dd>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                     Company Email
                                 </dt>
                                 <dd class="mt-2 text-base text-gray-500">
-                                    {{ $email ?: 'Belum ada data perusahaan' }}
+                                    {{ $email ?: 'There is no data' }}
                                 </dd>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                                     Company Phone
                                 </dt>
                                 <dd class="mt-2 text-base text-gray-500">
-                                    {{ $phone ?: 'Belum ada data perusahaan' }}
+                                    {{ $phone ?: 'There is no data' }}
                                 </dd>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                                     Company NPWP
                                 </dt>
                                 <dd class="mt-2 text-base text-gray-500">
-                                    {{ $npwp ?: 'Belum ada data perusahaan' }}
+                                    {{ $npwp ?: 'There is no data' }}
                                 </dd>
                             </div>
                         </div>
