@@ -34,6 +34,9 @@ class StoreTimelineRequest extends FormRequest
             'description' => [
                 'string',
             ],
+            'study_program_id' => [
+                'required', 'integer',
+            ]
         ];
     }
 }

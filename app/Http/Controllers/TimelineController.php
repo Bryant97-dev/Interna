@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTimelineRequest;
+use App\Http\Requests\UpdateTimelineRequest;
 use App\Models\Timeline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +35,9 @@ class TimelineController extends Controller
     {
         abort_if(Gate::denies('admin_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('timeline.create');
+        $study_program_id = Auth::user()->study_program_id;
+
+        return view('timeline.create', compact('study_program_id'));
     }
 
     /**
@@ -69,7 +72,7 @@ class TimelineController extends Controller
      */
     public function edit(Timeline $timeline)
     {
-        abort_if(Gate::denies('edit_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('timeline.edit', compact('timeline'));
     }
@@ -81,7 +84,7 @@ class TimelineController extends Controller
      * @param  \App\Models\Timeline  $timeline
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Timeline $timeline)
+    public function update(UpdateTimelineRequest $request, Timeline $timeline)
     {
         $timeline->update($request->validated());
 
@@ -96,7 +99,7 @@ class TimelineController extends Controller
      */
     public function destroy(Timeline $timeline)
     {
-        abort_if(Gate::denies('edit_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $timeline->delete();
 
