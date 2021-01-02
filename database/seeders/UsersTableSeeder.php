@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
                 'study_program_id'  => 8,
                 'period_id'         => 1,
                 'name'              => 'Bryant Lee Tjandra',
-                'email'             => 'btjandra.ciputra.ac.id',
+                'email'             => 'btjandra@student.ciputra.ac.id',
                 'password'          => bcrypt('password'),
             ],
             [
