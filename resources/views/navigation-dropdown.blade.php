@@ -23,10 +23,17 @@
                         </x-jet-nav-link>
                     </div>
                 @endcan
+                @can('administrative_data_access')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('administrative-data.index') }}" :active="request()->routeIs('administrative-data.*')">
+                            Administrative Data
+                        </x-jet-nav-link>
+                    </div>
+                @endcan
                 @can('company_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('company.index') }}" :active="request()->routeIs('company.*')">
-                            Company
+                            Company Data
                         </x-jet-nav-link>
                     </div>
                 @endcan

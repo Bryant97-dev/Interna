@@ -6,6 +6,9 @@ use App\Http\Requests\StoreAdministrativeDataRequest;
 use App\Http\Requests\UpdateAdministrativeDataRequest;
 use App\Models\AdministrativeData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class AdministrativeDataController extends Controller
 {
@@ -16,7 +19,11 @@ class AdministrativeDataController extends Controller
      */
     public function index()
     {
-        //
+        abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $administrative_datas = AdministrativeData::with('users')->where('user_id', '=', Auth::id())->get();
+
+        return view('administrative_data.index', compact('administrative_datas'));
     }
 
     /**
@@ -26,7 +33,9 @@ class AdministrativeDataController extends Controller
      */
     public function create()
     {
-        //
+        abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('administrative_data.create');
     }
 
     /**
@@ -37,7 +46,9 @@ class AdministrativeDataController extends Controller
      */
     public function store(StoreAdministrativeDataRequest $request)
     {
-        //
+        Timeline::create($request->validated());
+
+        return redirect()->route('timeline.index');
     }
 
     /**
@@ -59,7 +70,9 @@ class AdministrativeDataController extends Controller
      */
     public function edit(AdministrativeData $administrativeData)
     {
-        //
+        abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('timeline.edit', compact('timeline'));
     }
 
     /**
@@ -71,7 +84,9 @@ class AdministrativeDataController extends Controller
      */
     public function update(UpdateAdministrativeDataRequest $request, AdministrativeData $administrativeData)
     {
-        //
+        $timeline->update($request->validated());
+
+        return redirect()->route('timeline.index');
     }
 
     /**
@@ -82,6 +97,10 @@ class AdministrativeDataController extends Controller
      */
     public function destroy(AdministrativeData $administrativeData)
     {
-        //
+        abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $timeline->delete();
+
+        return redirect()->route('timeline.index');
     }
 }
