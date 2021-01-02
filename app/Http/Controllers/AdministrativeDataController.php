@@ -35,7 +35,9 @@ class AdministrativeDataController extends Controller
     {
         abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('administrative_data.create');
+        $user_id = Auth::id();
+
+        return view('administrative_data.create', compact('user_id'));
     }
 
     /**
