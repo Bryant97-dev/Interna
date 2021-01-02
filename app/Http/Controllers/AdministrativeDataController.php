@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAdministrativeDataRequest;
+use App\Http\Requests\UpdateAdministrativeDataRequest;
 use App\Models\AdministrativeData;
 use Illuminate\Http\Request;
 
@@ -33,7 +35,7 @@ class AdministrativeDataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAdministrativeDataRequest $request)
     {
         //
     }
@@ -67,7 +69,7 @@ class AdministrativeDataController extends Controller
      * @param  \App\Models\AdministrativeData  $administrativeData
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AdministrativeData $administrativeData)
+    public function update(UpdateAdministrativeDataRequest $request, AdministrativeData $administrativeData)
     {
         //
     }
