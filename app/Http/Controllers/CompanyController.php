@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,13 +21,41 @@ class CompanyController extends Controller
     {
         abort_if(Gate::denies('company_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $user = Company::find(1);
-
-        foreach ($user->users as $role) {
-            echo $role->pivot->created_at;
+        $gg = [];
+        $id = null;
+        $name = null;
+        $address = null;
+        $supervisor = null;
+        $email = null;
+        $phone = null;
+        $npwp = null;
+        $users = DB::table('company_user')->where('user_id', '=', Auth::id())->get();
+        foreach ($users as $u)
+        {
+            $gg[] = $u->user_id ;
         }
+        $companies = Company::find($gg);
 
-        return $user;
+        foreach ($companies as $c)
+        {
+            $id = $c->id;
+            $name = $c->name;
+            $address = $c->address;
+            $supervisor = $c->supervisor;
+            $email = $c->email;
+            $phone = $c->phone;
+            $npwp = $c->npwp;
+        }
+        return view('company.index',[
+            'id' => $id,
+            'name' => $name,
+            'address' => $address,
+            'supervisor' => $supervisor,
+            'email' => $email,
+            'phone' => $phone,
+            'npwp' => $npwp,
+            'companies' => $gg,
+        ]);
     }
 
     /**
