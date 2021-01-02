@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Timeline;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class TimelineController extends Controller
 {
@@ -14,7 +16,11 @@ class TimelineController extends Controller
      */
     public function index()
     {
-        //
+        abort_if(Gate::allows('timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $timelines = Timeline::all();
+
+        return view('timeline.index', compact('timelines'));
     }
 
     /**
@@ -24,7 +30,9 @@ class TimelineController extends Controller
      */
     public function create()
     {
-        //
+        abort_if(Gate::denies('edit_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('timeline.create');
     }
 
     /**
@@ -35,7 +43,9 @@ class TimelineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Timeline::create($request->validated());
+
+        return redirect()->route('timeline.index');
     }
 
     /**
@@ -44,10 +54,10 @@ class TimelineController extends Controller
      * @param  \App\Models\Timeline  $timeline
      * @return \Illuminate\Http\Response
      */
-    public function show(Timeline $timeline)
-    {
-        //
-    }
+//    public function show(Timeline $timeline)
+//    {
+//        //
+//    }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +67,9 @@ class TimelineController extends Controller
      */
     public function edit(Timeline $timeline)
     {
-        //
+        abort_if(Gate::denies('edit_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('timeline.edit', compact('timeline'));
     }
 
     /**
@@ -69,7 +81,9 @@ class TimelineController extends Controller
      */
     public function update(Request $request, Timeline $timeline)
     {
-        //
+        $timeline->update($request->validated());
+
+        return redirect()->route('timeline.index');
     }
 
     /**
@@ -80,6 +94,10 @@ class TimelineController extends Controller
      */
     public function destroy(Timeline $timeline)
     {
-        //
+        abort_if(Gate::denies('edit_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $timeline->delete();
+
+        return redirect()->route('timeline.index');
     }
 }

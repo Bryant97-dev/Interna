@@ -11,6 +11,12 @@ class Timeline extends Model
 
     protected $table = 'interna_timelines';
 
+    protected $fillable = [
+        'date',
+        'title',
+        'description',
+    ];
+
     public function study_programs(){
         return $this->belongsTo(StudyProgram::class, 'study_program_id', 'id');
     }
