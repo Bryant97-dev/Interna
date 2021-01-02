@@ -19,6 +19,9 @@ class PermissionsTableSeeder extends Seeder
             [
                 'title' => 'user_timeline_access',
             ],
+            [
+                'title' => 'company_access',
+            ],
         ];
 
         Permission::insert($permissions);

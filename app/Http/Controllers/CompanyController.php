@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class CompanyController extends Controller
 {
@@ -14,7 +17,15 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        abort_if(Gate::denies('company_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $user = Company::find(1);
+
+        foreach ($user->users as $role) {
+            echo $role->pivot->created_at;
+        }
+
+        return $user;
     }
 
     /**
@@ -24,7 +35,9 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        abort_if(Gate::denies('company_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('company.create');
     }
 
     /**
@@ -35,7 +48,11 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $companies = InternaCompany::create($request->validated());
+
+        $companies->internships()->sync($request->input('internships', []));
+
+        return redirect()->route('company.index');
     }
 
     /**
@@ -44,10 +61,10 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
-    {
-        //
-    }
+//    public function show(Company $company)
+//    {
+//        //
+//    }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +74,16 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        abort_if(Gate::denies('company_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $company = InternaInternship::with('companies')->where('user_id','=', Auth::id())->get();
+        $companies = array();
+        foreach ($company as $c)
+        {
+            $companies[] = $c->companies ;
+        }
+
+        return view('company.edit', compact('companies'));
     }
 
     /**
@@ -69,7 +95,9 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $company->update($request->validated());
+
+        return redirect()->route('company.index');
     }
 
     /**
@@ -78,8 +106,8 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
-    {
-        //
-    }
+//    public function destroy(Company $company)
+//    {
+//        //
+//    }
 }

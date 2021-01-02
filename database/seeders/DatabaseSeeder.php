@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             StudyProgramsTableSeeder::class,
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
+            CompaniesTableSeeder::class,
         ]);
     }
 }
