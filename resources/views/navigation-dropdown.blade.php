@@ -16,17 +16,17 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
-                @can('task_access')
+                @canany(['edit_timeline_access', 'view_timeline_access'])
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ route('tasks.index') }}" :active="request()->routeIs('tasks.*')">
-                            Tasks
+                        <x-jet-nav-link href="{{ route('timeline.index') }}" :active="request()->routeIs('timeline.*')">
+                            Timeline
                         </x-jet-nav-link>
                     </div>
                 @endcan
                 @can('user_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
-                            Users
+                        <x-jet-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('user.*')">
+                            User
                         </x-jet-nav-link>
                     </div>
                 @endcan

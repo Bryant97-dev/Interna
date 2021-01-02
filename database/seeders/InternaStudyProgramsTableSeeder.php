@@ -14,7 +14,7 @@ class InternaStudyProgramsTableSeeder extends Seeder
      */
     public function run()
     {
-        $studyprograms = [
+        $study_programs = [
             [
                 'abbreviation'  => 'IBM',
                 'study_program' => 'International Business Management - Regular Class',
@@ -73,6 +73,6 @@ class InternaStudyProgramsTableSeeder extends Seeder
             ],
         ];
 
-        StudyProgram::insert($studyprograms);
+        StudyProgram::insert($study_programs);
     }
 }

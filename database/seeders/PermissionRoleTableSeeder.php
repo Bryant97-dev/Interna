@@ -10,10 +10,13 @@ class PermissionRoleTableSeeder extends Seeder
 {
     public function run()
     {
-        $admin_permissions = Permission::all();
+        $permissions = Permission::all();
+        $admin_permissions = $permissions->filter(function ($permission) {
+            return $permission->title != 'user_timeline_access';
+        });
         Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id'));
-        $user_permissions = $admin_permissions->filter(function ($permission) {
-            return substr($permission->title, 0, 5) != 'user_';
+        $user_permissions = $permissions->filter(function ($permission) {
+            return !in_array($permission->title, ['admin_timeline_access', 'user_access'], true );
         });
         Role::findOrFail(2)->permissions()->sync($user_permissions);
     }

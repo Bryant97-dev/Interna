@@ -14,7 +14,10 @@ class PermissionsTableSeeder extends Seeder
                 'title' => 'user_access',
             ],
             [
-                'title' => 'task_access',
+                'title' => 'admin_timeline_access',
+            ],
+            [
+                'title' => 'user_timeline_access',
             ],
         ];
 
