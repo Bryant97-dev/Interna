@@ -68,8 +68,14 @@ class CompanyController extends Controller
     public function create()
     {
         abort_if(Gate::denies('company_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('company.create');
+        if (empty(DB::table('company_user')->where('user_id', '=', Auth::id())->get()))
+        {
+            return view('company.create');
+        }
+        else
+        {
+            return redirect()->route('company.index');
+        }
     }
 
     /**
