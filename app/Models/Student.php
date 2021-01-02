@@ -10,4 +10,16 @@ class Student extends Model
     use HasFactory;
 
     protected $table = 'interna_students';
+
+    protected $fillable = [
+        'name',
+        'nim',
+        'gender',
+        'email',
+        'line_account',
+        'phone',
+        'batch',
+        'description',
+        'photo',
+    ];
 }

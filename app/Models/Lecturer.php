@@ -11,6 +11,20 @@ class Lecturer extends Model
 
     protected $table = 'interna_lecturers';
 
+    protected $fillable = [
+        'name',
+        'nidn',
+        'nip',
+        'gender',
+        'email',
+        'line_account',
+        'phone',
+        'description',
+        'photo',
+        'position_id',
+        'jaka_id',
+    ];
+
     public function jakas(){
         return $this->belongsTo(Jaka::class, 'jaka_id', 'id');
     }
