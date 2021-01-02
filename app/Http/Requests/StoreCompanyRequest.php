@@ -43,9 +43,6 @@ class StoreCompanyRequest extends FormRequest
             'npwp' => [
                 'required', 'string',
             ],
-            'users.*'  => [
-                'integer',
-            ],
         ];
     }
 }

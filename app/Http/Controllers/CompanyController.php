@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCompanyRequest;
+use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -106,14 +107,7 @@ class CompanyController extends Controller
     {
         abort_if(Gate::denies('company_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $company = InternaInternship::with('companies')->where('user_id','=', Auth::id())->get();
-        $companies = array();
-        foreach ($company as $c)
-        {
-            $companies[] = $c->companies ;
-        }
-
-        return view('company.edit', compact('companies'));
+        return view('company.edit', compact('company'));
     }
 
     /**
@@ -123,7 +117,7 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(UpdateCompanyRequest $request, Company $company)
     {
         $company->update($request->validated());
 

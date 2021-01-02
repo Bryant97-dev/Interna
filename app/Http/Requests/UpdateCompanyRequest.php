@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class UpdateCompanyRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateCompanyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Gate::allows('company_access');
     }
 
     /**
@@ -24,7 +25,24 @@ class UpdateCompanyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => [
+                'required', 'string',
+            ],
+            'address' => [
+                'required', 'string',
+            ],
+            'supervisor' => [
+                'required', 'string',
+            ],
+            'email' => [
+                'required', 'string',
+            ],
+            'phone' => [
+                'required', 'string',
+            ],
+            'npwp' => [
+                'required', 'string',
+            ],
         ];
     }
 }
