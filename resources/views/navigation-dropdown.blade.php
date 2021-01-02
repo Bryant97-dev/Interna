@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
-                @canany(['edit_timeline_access', 'view_timeline_access'])
+                @canany(['admin_timeline_access', 'user_timeline_access'])
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('timeline.index') }}" :active="request()->routeIs('timeline.*')">
                             Timeline
