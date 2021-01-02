@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\StudyProgram;
 use Illuminate\Database\Seeder;
 
-class InternaStudyProgramsTableSeeder extends Seeder
+class StudyProgramsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

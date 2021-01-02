@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Period;
 use Illuminate\Database\Seeder;
 
-class InternaPeriodsTableSeeder extends Seeder
+class PeriodsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
