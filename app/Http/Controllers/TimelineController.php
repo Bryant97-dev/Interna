@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTimelineRequest;
 use App\Models\Timeline;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,7 +20,7 @@ class TimelineController extends Controller
     {
         abort_if(Gate::allows('timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $timelines = Timeline::all();
+        $timelines = Timeline::with('study_programs')->where('study_program_id', '=', Auth::user()->study_program_id)->get();
 
         return view('timeline.index', compact('timelines'));
     }
@@ -30,7 +32,7 @@ class TimelineController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('edit_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('timeline.create');
     }
@@ -41,7 +43,7 @@ class TimelineController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTimelineRequest $request)
     {
         Timeline::create($request->validated());
 

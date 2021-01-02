@@ -7,7 +7,7 @@
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
-            @can('edit_timeline_access')
+            @can('admin_timeline_access')
                 <div class="block mb-8">
                     <a href="{{ route('timeline.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add Timeline</a>
                 </div>
@@ -23,9 +23,12 @@
                                         Date
                                     </th>
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Title
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Description
                                     </th>
-                                    @can('edit_timeline_access')
+                                    @can('admin_timeline_access')
                                         <th scope="col" width="200" class="px-6 py-3 bg-gray-50">
 
                                         </th>
@@ -40,9 +43,13 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $timeline->title }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $timeline->description }}
                                         </td>
-                                        @can('edit_timeline_access')
+                                        @can('admin_timeline_access')
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                 <a href="{{ route('timeline.show', $timeline->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
                                                 <a href="{{ route('timeline.edit', $timeline->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
