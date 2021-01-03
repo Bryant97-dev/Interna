@@ -54,12 +54,12 @@
                                             </td>
                                         @else
                                             @if($administrative_data->approved == 1)
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    Rejected
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
+                                                    Approved
                                                 </td>
                                             @else
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    Approved
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">
+                                                    Rejected
                                                 </td>
                                             @endif
                                         @endif
