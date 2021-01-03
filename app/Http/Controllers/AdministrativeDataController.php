@@ -46,14 +46,8 @@ class AdministrativeDataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAdministrativeDataRequest $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'file' => 'required',
-            'description' => 'required',
-        ]);
-
         $path = $request->file('file')->store('file');
 
         return $path;
