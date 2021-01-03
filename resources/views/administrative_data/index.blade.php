@@ -27,7 +27,7 @@
                                         Description
                                     </th>
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Approved
+                                        Status
                                     </th>
                                     <th scope="col" width="200" class="px-6 py-3 bg-gray-50">
 
@@ -48,12 +48,12 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $administrative_data->description }}
                                         </td>
-                                        @if(empty($administrative_data->approved))
+                                        @if(empty($administrative_data->status))
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                 Pending
                                             </td>
                                         @else
-                                            @if($administrative_data->approved == 1)
+                                            @if($administrative_data->status == 1)
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
                                                     Approved
                                                 </td>

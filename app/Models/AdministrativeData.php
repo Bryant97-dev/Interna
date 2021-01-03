@@ -16,7 +16,7 @@ class AdministrativeData extends Model
         'file',
         'path',
         'description',
-        'approved',
+        'status',
         'user_id',
     ];
 
