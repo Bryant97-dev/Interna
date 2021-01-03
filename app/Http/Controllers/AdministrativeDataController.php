@@ -48,7 +48,9 @@ class AdministrativeDataController extends Controller
      */
     public function store(StoreAdministrativeDataRequest $request)
     {
-        $path = $request->file('file')->store('file');
+        $path = $request->file('file')->store('public');
+
+        AdministrativeData::create($request->validated());
 
         return $path;
 
