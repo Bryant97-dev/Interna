@@ -48,9 +48,21 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $administrative_data->description }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $administrative_data->approved ?: 'Pending'}}
-                                        </td>
+                                        @if(empty($administrative_data->approved))
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                Pending
+                                            </td>
+                                        @else
+                                            @if($administrative_data->approved == 1)
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    Rejected
+                                                </td>
+                                            @else
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    Approved
+                                                </td>
+                                            @endif
+                                        @endif
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                             <a href="{{ route('administrative-data.edit', $administrative_data->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
                                             <form class="inline-block" action="{{ route('administrative-data.destroy', $administrative_data->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
