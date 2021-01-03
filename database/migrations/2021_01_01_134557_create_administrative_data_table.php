@@ -19,7 +19,7 @@ class CreateAdministrativeDataTable extends Migration
             $table->string('file');
             $table->text('path');
             $table->text('description')->nullable();
-            $table->boolean('approved')->nullable();
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }
