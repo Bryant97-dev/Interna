@@ -16,8 +16,9 @@ class CreateAdministrativeDataTable extends Migration
         Schema::create('interna_administrative_data', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('file');
-            $table->text('description');
+            $table->string('file');
+            $table->text('path');
+            $table->text('description')->nullable();
             $table->boolean('approved')->nullable();
             $table->timestamps();
         });

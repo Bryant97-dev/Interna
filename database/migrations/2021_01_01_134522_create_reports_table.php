@@ -16,9 +16,10 @@ class CreateReportsTable extends Migration
         Schema::create('interna_reports', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('file');
-            $table->text('description');
-            $table->boolean('approved');
+            $table->string('file');
+            $table->text('path');
+            $table->text('description')->nullable();
+            $table->boolean('approved')->nullable();
             $table->timestamps();
         });
     }
