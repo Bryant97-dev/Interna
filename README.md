@@ -12,7 +12,7 @@
       
 - setup .env file then run migrate command
 
-      $ php artisan migrate --seed
+      $ php artisan migrate:fresh --seed
 	  $ php artisan vendor:publish --tag=jetstream-views
       
 - Open in browser 
