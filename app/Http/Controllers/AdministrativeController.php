@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAdministrativeDataRequest;
-use App\Http\Requests\UpdateAdministrativeDataRequest;
+use App\Http\Requests\StoreAdministrativeRequest;
+use App\Http\Requests\UpdateAdministrativeRequest;
 use App\Models\Administrative;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +46,7 @@ class AdministrativeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAdministrativeDataRequest $request)
+    public function store(StoreAdministrativeRequest $request)
     {
         $file = $request->file('file');
         $name = $file->getClientOriginalName();
@@ -95,7 +95,7 @@ class AdministrativeController extends Controller
      * @param  \App\Models\Administrative  $administrative
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAdministrativeDataRequest $request, Administrative $administrative)
+    public function update(UpdateAdministrativeRequest $request, Administrative $administrative)
     {
         $timeline->update($request->validated());
 

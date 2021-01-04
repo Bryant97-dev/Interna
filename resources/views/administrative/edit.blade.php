@@ -22,7 +22,11 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="file" class="block font-medium text-sm text-gray-700">File</label>
+                            <a href="/storage/{{ $administrative->path }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">{{ $administrative->file }}</a>
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="file" class="block font-medium text-sm text-gray-700">Or Upload New File</label>
                             <input type="file" name="file" id="file" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('file', $administrative->file) }}" />
                             @error('file')
