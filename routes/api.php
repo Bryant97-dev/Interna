@@ -18,5 +18,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('timeline', [\App\Http\Controllers\Api\TimelineController::class, 'timeline']);
+});
+
 Route::post('login', [\App\Http\Controllers\Api\LoginController::class, 'login']);
 Route::post('logout', [\App\Http\Controllers\Api\LoginController::class, 'logout']);

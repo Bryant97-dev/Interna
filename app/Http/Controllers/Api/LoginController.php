@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    public function login(Request $request){
+    public function login (Request $request){
         $user = User::where('email', $request->email)->first();
         if(! $user->tokens() == null){
             $user->tokens()->delete();
@@ -26,7 +26,7 @@ class LoginController extends Controller
         ]);
     }
 
-    public function logout(Request $request){
+    public function logout (Request $request){
         auth()->logout();
         return response()->json([
             'message'    => "Success"
