@@ -18,6 +18,7 @@ class CreateTimelinesTable extends Migration
             $table->date('date');
             $table->string('title');
             $table->text('description')->nullable();
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }

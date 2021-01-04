@@ -15,6 +15,7 @@ class Timeline extends Model
         'date',
         'title',
         'description',
+        'status',
         'study_program_id',
     ];
 
