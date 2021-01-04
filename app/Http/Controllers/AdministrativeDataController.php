@@ -81,11 +81,11 @@ class AdministrativeDataController extends Controller
      * @param  \App\Models\AdministrativeData  $administrativeData
      * @return \Illuminate\Http\Response
      */
-    public function edit(AdministrativeData $administrativeData)
+    public function edit(AdministrativeData $administrative_data)
     {
         abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('timeline.edit', compact('timeline'));
+        return view('administrative_data.edit', compact('administrative_data'));
     }
 
     /**
