@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdministrativeDataTable extends Migration
+class CreateAdministrativesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAdministrativeDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('interna_administrative_data', function (Blueprint $table) {
+        Schema::create('interna_administratives', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('file');
@@ -31,6 +31,6 @@ class CreateAdministrativeDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interna_administrative_data');
+        Schema::dropIfExists('interna_administratives');
     }
 }

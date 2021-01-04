@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToAdministrativeDataTable extends Migration
+class AddUserIdToAdministrativesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddUserIdToAdministrativeDataTable extends Migration
      */
     public function up()
     {
-        Schema::table('interna_administrative_data', function (Blueprint $table) {
+        Schema::table('interna_administratives', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->index()->after('id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
@@ -26,7 +26,7 @@ class AddUserIdToAdministrativeDataTable extends Migration
      */
     public function down()
     {
-        Schema::table('interna_administrative_data', function (Blueprint $table) {
+        Schema::table('interna_administratives', function (Blueprint $table) {
             $table->dropColumn('user_id');
         });
     }

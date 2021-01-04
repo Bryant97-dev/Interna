@@ -8,14 +8,14 @@
     <div>
         <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <form method="post" action="{{ route('administrative-data.update', $administrative_data->id) }}">
+                <form method="post" action="{{ route('administrative.update', $administrative->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="title" class="block font-medium text-sm text-gray-700">Title</label>
                             <input type="text" name="title" id="title" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('title', $administrative_data->title) }}" />
+                                   value="{{ old('title', $administrative->title) }}" />
                             @error('title')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -24,7 +24,7 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="file" class="block font-medium text-sm text-gray-700">File</label>
                             <input type="file" name="file" id="file" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('file', $administrative_data->file) }}" />
+                                   value="{{ old('file', $administrative->file) }}" />
                             @error('file')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -33,7 +33,7 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="description" class="block font-medium text-sm text-gray-700">Description</label>
                             <input type="text" name="description" id="description" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('description', $administrative_data->description) }}" />
+                                   value="{{ old('description', $administrative->description) }}" />
                             @error('description')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror

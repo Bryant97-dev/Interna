@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAdministrativeDataRequest;
 use App\Http\Requests\UpdateAdministrativeDataRequest;
-use App\Models\AdministrativeData;
+use App\Models\Administrative;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdministrativeDataController extends Controller
+class AdministrativeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +21,9 @@ class AdministrativeDataController extends Controller
     {
         abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $administrative_datas = AdministrativeData::with('users')->where('user_id', '=', Auth::id())->get();
+        $administrative_datas = Administrative::with('users')->where('user_id', '=', Auth::id())->get();
 
-        return view('administrative_data.index', compact('administrative_datas'));
+        return view('administrative.index', compact('administrative_datas'));
     }
 
     /**
@@ -37,7 +37,7 @@ class AdministrativeDataController extends Controller
 
         $user_id = Auth::id();
 
-        return view('administrative_data.create', compact('user_id'));
+        return view('administrative.create', compact('user_id'));
     }
 
     /**
@@ -53,7 +53,7 @@ class AdministrativeDataController extends Controller
         $path = substr($file->store('public'), 7);
         $data = $request->validated();
 
-        AdministrativeData::create([
+        Administrative::create([
             'title' => $data['title'],
             'file' => $name,
             'path' => $path,
@@ -61,41 +61,41 @@ class AdministrativeDataController extends Controller
             'user_id' => $data['user_id'],
         ]);
 
-        return redirect()->route('administrative-data.index');
+        return redirect()->route('administrative.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AdministrativeData  $administrativeData
+     * @param  \App\Models\Administrative  $administrative
      * @return \Illuminate\Http\Response
      */
-//    public function show(AdministrativeData $administrativeData)
-//    {
-//        //
-//    }
+    public function show(Administrative $administrative)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AdministrativeData  $administrativeData
+     * @param  \App\Models\Administrative  $administrative
      * @return \Illuminate\Http\Response
      */
-    public function edit(AdministrativeData $administrative_data)
+    public function edit(Administrative $administrative)
     {
         abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('administrative_data.edit', compact('administrative_data'));
+        return view('administrative.edit', compact('administrative'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AdministrativeData  $administrativeData
+     * @param  \App\Models\Administrative  $administrative
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAdministrativeDataRequest $request, AdministrativeData $administrativeData)
+    public function update(UpdateAdministrativeDataRequest $request, Administrative $administrative)
     {
         $timeline->update($request->validated());
 
@@ -105,10 +105,10 @@ class AdministrativeDataController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AdministrativeData  $administrativeData
+     * @param  \App\Models\Administrative  $administrative
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AdministrativeData $administrativeData)
+    public function destroy(Administrative $administrative)
     {
         abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
