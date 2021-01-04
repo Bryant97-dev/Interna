@@ -70,10 +70,10 @@ class AdministrativeDataController extends Controller
      * @param  \App\Models\AdministrativeData  $administrativeData
      * @return \Illuminate\Http\Response
      */
-    public function show(AdministrativeData $administrativeData)
-    {
-        //
-    }
+//    public function show(AdministrativeData $administrativeData)
+//    {
+//        //
+//    }
 
     /**
      * Show the form for editing the specified resource.
