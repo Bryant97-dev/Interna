@@ -64,6 +64,7 @@
                                             @endif
                                         @endif
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <a href="/storage/{{ $administrative_data->path }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Download</a>
                                             <a href="{{ route('administrative-data.edit', $administrative_data->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
                                             <form class="inline-block" action="{{ route('administrative-data.destroy', $administrative_data->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
