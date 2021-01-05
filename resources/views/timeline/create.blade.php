@@ -13,7 +13,7 @@
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="date" class="block font-medium text-sm text-gray-700">Date</label>
-                            <input type="date" name="date" id="date" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <input type="datetime-local" name="date" id="date" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('date', '') }}" />
                             @error('date')
                             <p class="text-sm text-red-600">{{ $message }}</p>
