@@ -28,6 +28,9 @@ class StoreTimelineRequest extends FormRequest
             'date' => [
                 'required', 'date',
             ],
+            'time' => [
+                'required',
+            ],
             'title' => [
                 'required', 'string',
             ],

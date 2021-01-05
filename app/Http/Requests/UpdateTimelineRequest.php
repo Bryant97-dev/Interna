@@ -28,6 +28,9 @@ class UpdateTimelineRequest extends FormRequest
             'date' => [
                 'required', 'date',
             ],
+            'time' => [
+                'required',
+            ],
             'title' => [
                 'required', 'string',
             ],

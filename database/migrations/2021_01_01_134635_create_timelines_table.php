@@ -15,7 +15,8 @@ class CreateTimelinesTable extends Migration
     {
         Schema::create('interna_timelines', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('date');
+            $table->date('date');
+            $table->time('time');
             $table->string('title');
             $table->text('description')->nullable();
             $table->boolean('status')->default('0');
