@@ -19,7 +19,7 @@ class CreateReportsTable extends Migration
             $table->string('file');
             $table->text('path');
             $table->text('description')->nullable();
-            $table->boolean('status')->nullable();
+            $table->boolean('status')->default('0');
             $table->timestamps();
         });
     }
