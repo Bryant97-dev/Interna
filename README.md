@@ -14,7 +14,9 @@
 
       $ php artisan migrate:fresh --seed
 	  $ php artisan vendor:publish --tag=jetstream-views
+	  $ php artisan storage:link
       
+- Don't forget to generate helper (if u have Laravel Idea Plugin installed on your computer)
 - Open in browser 
   
 
