@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use App\Actions\Jetstream\DeleteUser;
+use App\Models\Period;
+use App\Models\StudyProgram;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Fortify\Fortify;
 use Laravel\Jetstream\Jetstream;
 
 class JetstreamServiceProvider extends ServiceProvider
@@ -25,6 +28,9 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Fortify::registerView(function () {
+            return view('auth.register', ['study_programs' => StudyProgram::all(), 'periods' => Period::all()]);
+        });
         $this->configurePermissions();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);
