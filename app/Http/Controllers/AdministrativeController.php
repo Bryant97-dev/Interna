@@ -70,10 +70,10 @@ class AdministrativeController extends Controller
      * @param  \App\Models\Administrative  $administrative
      * @return \Illuminate\Http\Response
      */
-    public function show(Administrative $administrative)
-    {
-        //
-    }
+//    public function show(Administrative $administrative)
+//    {
+//        //
+//    }
 
     /**
      * Show the form for editing the specified resource.
@@ -97,9 +97,27 @@ class AdministrativeController extends Controller
      */
     public function update(UpdateAdministrativeRequest $request, Administrative $administrative)
     {
-        $timeline->update($request->validated());
+        if (!empty($request->file('file')))
+        {
+            $file = $request->file('file');
+            $name = $file->getClientOriginalName();
+            $path = substr($file->store('public'), 7);
+            $data = $request->validated();
 
-        return redirect()->route('timeline.index');
+            $administrative->update([
+                'title' => $data['title'],
+                'file' => $name,
+                'path' => $path,
+                'description' => $data['description'],
+                'status' => 0,
+            ]);
+        }
+        else
+        {
+            $administrative->update($request->validated());
+        }
+
+        return redirect()->route('administrative.index');
     }
 
     /**
@@ -112,8 +130,8 @@ class AdministrativeController extends Controller
     {
         abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $timeline->delete();
+        $administrative->delete();
 
-        return redirect()->route('timeline.index');
+        return redirect()->route('administrative.index');
     }
 }

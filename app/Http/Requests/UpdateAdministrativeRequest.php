@@ -28,15 +28,9 @@ class UpdateAdministrativeRequest extends FormRequest
             'title' => [
                 'required', 'string',
             ],
-            'file' => [
-                'required',
-            ],
             'description' => [
                 'required', 'string',
             ],
-            'user_id' => [
-                'required', 'integer',
-            ]
         ];
     }
 }
