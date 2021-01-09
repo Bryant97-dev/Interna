@@ -16,6 +16,12 @@ class UsersTableSeeder extends Seeder
                 'name'              => 'Franciscus Valentinus Ongkosianbhadra',
                 'email'             => 'fvalentinus@student.ciputra.ac.id',
                 'password'          => bcrypt('password'),
+                'nim'               => '0706011910004',
+                'gender'            => 'male',
+                'line_account'      => 'fvo140202',
+                'phone'             => '081333138472',
+                'batch'             => '2019',
+                'description'       => 'Certified Google : IT Support',
             ],
             [
                 'study_program_id'  => 8,
@@ -23,6 +29,12 @@ class UsersTableSeeder extends Seeder
                 'name'              => 'Bryant Lee Tjandra',
                 'email'             => 'btjandra@student.ciputra.ac.id',
                 'password'          => bcrypt('password'),
+                'nim'               => '0706011910001',
+                'gender'            => 'male',
+                'line_account'      => 'fvo140202',
+                'phone'             => '081333138472',
+                'batch'             => '2019',
+                'description'       => 'Informatics Student',
             ],
             [
                 'study_program_id'  => 8,
@@ -30,6 +42,12 @@ class UsersTableSeeder extends Seeder
                 'name'              => 'Javier',
                 'email'             => 'jemmanuel@student.ciputra.ac.id',
                 'password'          => bcrypt('password'),
+                'nim'               => '0706011910000',
+                'gender'            => 'male',
+                'line_account'      => 'fvo140202',
+                'phone'             => '081333138472',
+                'batch'             => '2019',
+                'description'       => 'Informatics Student',
             ],
         ];
 
