@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TimelineController extends Controller
 {
-    public function timeline (Request $request){
+    public function timeline (){
         $timelines = Timeline::with('study_programs')->where('study_program_id', '=', Auth::user()->study_program_id)->get();
         return response()->json($timelines);
     }
