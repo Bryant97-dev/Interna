@@ -27,9 +27,9 @@ class LoginController extends Controller
         ]);
     }
 
-    public function logout (Request $request){
+    public function logout (){
         auth()->logout();
-        return response()->json([
+        return response([
             'message'    => "Success"
         ], 200);
 
