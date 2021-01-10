@@ -5,8 +5,8 @@
         <div class="md:flex-col md:items-stretch md:min-h-full md:flex-no-wrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
             <button class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent" type="button" onclick="toggleNavbar('example-collapse-sidebar')">
                 <i class="fas fa-bars"></i></button>
-            <a class="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0" href="javascript:void(0)">
-                Tailwind Starter Kit
+            <a class="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0" href="{{ route('dashboard') }}">
+                Interna
             </a>
             <!-- Mobile -->
             <ul class="md:hidden items-center flex flex-wrap list-none">
@@ -14,16 +14,17 @@
                     <a class="text-gray-600 block" href="#" onclick="openDropdown(event,'user-responsive-dropdown')">
                         <div class="items-center flex">
                             <span class="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
-                                <img alt="..." class="w-full rounded-full align-middle border-none shadow-lg" src="{{ url('assets/dashboard/assets/img/team-1-800x800.jpg') }}"/>
+                                <img alt="{{ Auth::user()->name }}" class="w-full rounded-full align-middle border-none shadow-lg" src="{{ Auth::user()->profile_photo_url }}"/>
                             </span>
                         </div>
                     </a>
                     <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width: 12rem;" id="user-responsive-dropdown">
-                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Action</a>
-                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Another action</a>
-                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Something else here</a>
+                        <a href="{{ route('profile.show') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800" :active="request()->routeIs('profile.show')">Profile</a>
                         <div class="h-0 my-2 border border-solid border-gray-200"></div>
-                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Seprated link</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="{{ route('logout') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                        </form>
                     </div>
                 </li>
             </ul>
@@ -32,7 +33,7 @@
                     <div class="flex flex-wrap">
                         <div class="w-6/12">
                             <a class="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0" href="javascript:void(0)">
-                                Tailwind Starter Kit
+                                Interna
                             </a>
                         </div>
                         <div class="w-6/12 flex justify-end">
@@ -55,28 +56,8 @@
                     </li>
                     <li class="items-center">
                         <a class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block" href="#">
-                            <i class="fas fa-newspaper text-gray-500 mr-2 text-sm"></i>
-                            Landing Page</a>
-                    </li>
-                    <li class="items-center">
-                        <a class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block" href="#">
                             <i class="fas fa-user-circle text-gray-500 mr-2 text-sm"></i>
                             Profile Page</a>
-                    </li>
-                    <li class="items-center">
-                        <a class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block" href="#">
-                            <i class="fas fa-fingerprint text-gray-500 mr-2 text-sm"></i>
-                            Login</a>
-                    </li>
-                    <li class="items-center">
-                        <a class="text-gray-400 text-xs uppercase py-3 font-bold block" href="#">
-                            <i class="fas fa-clipboard-list text-gray-400 mr-2 text-sm"></i>
-                            Register (soon)</a>
-                    </li>
-                    <li class="items-center">
-                        <a class="text-gray-400 text-xs uppercase py-3 font-bold block" href="#">
-                            <i class="fas fa-tools text-gray-400 mr-2 text-sm"></i>
-                            Settings (soon)</a>
                     </li>
                 </ul>
             </div>
@@ -86,26 +67,21 @@
         <nav class="absolute top-0 left-0 w-full z-10 bg-transparent md:flex-row md:flex-no-wrap md:justify-start flex items-center p-4">
             <div class="w-full mx-autp items-center flex justify-between md:flex-no-wrap flex-wrap md:px-10 px-4">
                 <a class="text-white text-sm uppercase hidden lg:inline-block font-semibold" href="./index.html">Dashboard</a>
-                <form class="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">
-                    <div class="relative flex w-full flex-wrap items-stretch">
-                        <span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3"><i class="fas fa-search"></i></span>
-                        <input type="text" placeholder="Search here..." class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"/>
-                    </div>
-                </form>
                 <ul class="flex-col md:flex-row list-none items-center hidden md:flex">
                     <a class="text-gray-600 block" href="#" onclick="openDropdown(event,'user-dropdown')">
                         <div class="items-center flex">
                             <span class="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
-                                <img alt="..." class="w-full rounded-full align-middle border-none shadow-lg" src="{{ url('assets/dashboard/assets/img/team-1-800x800.jpg') }}"/>
+                                <img alt="{{ Auth::user()->name }}" class="w-full rounded-full align-middle border-none shadow-lg" src="{{ Auth::user()->profile_photo_url }}"/>
                             </span>
                         </div>
                     </a>
                     <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width: 12rem;" id="user-dropdown">
-                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Action</a>
-                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Another action</a>
-                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Something else here</a>
+                        <a href="{{ route('profile.show') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800" :active="request()->routeIs('profile.show')">Profile</a>
                         <div class="h-0 my-2 border border-solid border-gray-200"></div>
-                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Seprated link</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="{{ route('logout') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                        </form>
                     </div>
                 </ul>
             </div>
