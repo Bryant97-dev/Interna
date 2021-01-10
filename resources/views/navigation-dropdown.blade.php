@@ -1,4 +1,5 @@
 <noscript>You need to enable JavaScript to run this app.</noscript>
+<!-- PC -->
 <div id="root">
     <nav class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-no-wrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
         <div class="md:flex-col md:items-stretch md:min-h-full md:flex-no-wrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
@@ -7,29 +8,22 @@
             <a class="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0" href="javascript:void(0)">
                 Tailwind Starter Kit
             </a>
+            <!-- Mobile -->
             <ul class="md:hidden items-center flex flex-wrap list-none">
                 <li class="inline-block relative">
-                    <a class="text-gray-600 block py-1 px-3" href="#pablo" onclick="openDropdown(event,'notification-dropdown')">
-                        <i class="fas fa-bell"></i>
+                    <a class="text-gray-600 block" href="#" onclick="openDropdown(event,'user-responsive-dropdown')">
+                        <div class="items-center flex">
+                            <span class="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
+                                <img alt="..." class="w-full rounded-full align-middle border-none shadow-lg" src="{{ url('assets/dashboard/assets/img/team-1-800x800.jpg') }}"/>
+                            </span>
+                        </div>
                     </a>
-                    <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width: 12rem;" id="notification-dropdown">
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Action</a>
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Another action</a>
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Something else here</a>
-                        <div class="h-0 my-2 border border-solid border-gray-200"></div>
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Seprated link</a>
-                    </div>
-                </li>
-                <li class="inline-block relative">
-                    <a class="text-gray-600 block" href="#pablo" onclick="openDropdown(event,'user-responsive-dropdown')"><div class="items-center flex">
-                  <span class="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
-                      <img alt="..." class="w-full rounded-full align-middle border-none shadow-lg" src="./assets/img/team-1-800x800.jpg"/></span></div></a>
                     <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width: 12rem;" id="user-responsive-dropdown">
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Action</a>
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Another action</a>
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Something else here</a>
+                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Action</a>
+                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Another action</a>
+                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Something else here</a>
                         <div class="h-0 my-2 border border-solid border-gray-200"></div>
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Seprated link</a>
+                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Seprated link</a>
                     </div>
                 </li>
             </ul>
@@ -55,62 +49,34 @@
                 </form>
                 <ul class="md:flex-col md:min-w-full flex flex-col list-none">
                     <li class="items-center">
-                        <a class="text-pink-500 hover:text-pink-600 text-xs uppercase py-3 font-bold block" href="#/dashboard">
+                        <a class="text-pink-500 hover:text-pink-600 text-xs uppercase py-3 font-bold block" href="#">
                             <i class="fas fa-tv opacity-75 mr-2 text-sm"></i>
                             Dashboard</a>
                     </li>
                     <li class="items-center">
-                        <a class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block" href="#/landing"><i class="fas fa-newspaper text-gray-500 mr-2 text-sm"></i>
+                        <a class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block" href="#">
+                            <i class="fas fa-newspaper text-gray-500 mr-2 text-sm"></i>
                             Landing Page</a>
                     </li>
                     <li class="items-center">
-                        <a class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block" href="#/profile"><i class="fas fa-user-circle text-gray-500 mr-2 text-sm"></i>
+                        <a class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block" href="#">
+                            <i class="fas fa-user-circle text-gray-500 mr-2 text-sm"></i>
                             Profile Page</a>
                     </li>
                     <li class="items-center">
-                        <a class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block" href="#/login"><i class="fas fa-fingerprint text-gray-500 mr-2 text-sm"></i>
+                        <a class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block" href="#">
+                            <i class="fas fa-fingerprint text-gray-500 mr-2 text-sm"></i>
                             Login</a>
                     </li>
                     <li class="items-center">
-                        <a class="text-gray-400 text-xs uppercase py-3 font-bold block" href="#pablo">
+                        <a class="text-gray-400 text-xs uppercase py-3 font-bold block" href="#">
                             <i class="fas fa-clipboard-list text-gray-400 mr-2 text-sm"></i>
                             Register (soon)</a>
                     </li>
                     <li class="items-center">
-                        <a class="text-gray-400 text-xs uppercase py-3 font-bold block" href="#pablo">
+                        <a class="text-gray-400 text-xs uppercase py-3 font-bold block" href="#">
                             <i class="fas fa-tools text-gray-400 mr-2 text-sm"></i>
                             Settings (soon)</a>
-                    </li>
-                </ul>
-                <hr class="my-4 md:min-w-full" />
-                <h6 class="md:min-w-full text-gray-600 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-                    Documentation
-                </h6>
-                <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-                    <li class="inline-flex">
-                        <a class="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold" href="#/documentation/styles">
-                            <i class="fas fa-paint-brush mr-2 text-gray-500 text-base"></i>
-                            Styles</a>
-                    </li>
-                    <li class="inline-flex">
-                        <a class="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold" href="#/documentation/alerts"><i class="fab fa-css3-alt mr-2 text-gray-500 text-base"></i>
-                            CSS Components</a>
-                    </li>
-                    <li class="inline-flex">
-                        <a class="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold" href="#/documentation/vue/alerts"><i class="fab fa-vuejs mr-2 text-gray-500 text-base"></i>
-                            VueJS</a>
-                    </li>
-                    <li class="inline-flex">
-                        <a class="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold" href="#/documentation/react/alerts"><i class="fab fa-react mr-2 text-gray-500 text-base"></i>
-                            React</a>
-                    </li>
-                    <li class="inline-flex">
-                        <a class="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold" href="#/documentation/angular/alerts"><i class="fab fa-angular mr-2 text-gray-500 text-base"></i>
-                            Angular</a>
-                    </li>
-                    <li class="inline-flex">
-                        <a class="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold" href="#/documentation/javascript/alerts"><i class="fab fa-js-square mr-2 text-gray-500 text-base"></i>
-                            Javascript</a>
                     </li>
                 </ul>
             </div>
@@ -122,24 +88,24 @@
                 <a class="text-white text-sm uppercase hidden lg:inline-block font-semibold" href="./index.html">Dashboard</a>
                 <form class="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">
                     <div class="relative flex w-full flex-wrap items-stretch">
-                <span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3"><i class="fas fa-search"></i></span>
+                        <span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3"><i class="fas fa-search"></i></span>
                         <input type="text" placeholder="Search here..." class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"/>
                     </div>
                 </form>
                 <ul class="flex-col md:flex-row list-none items-center hidden md:flex">
-                    <a class="text-gray-600 block" href="#pablo" onclick="openDropdown(event,'user-dropdown')">
+                    <a class="text-gray-600 block" href="#" onclick="openDropdown(event,'user-dropdown')">
                         <div class="items-center flex">
-                  <span class="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
-                      <img alt="..." class="w-full rounded-full align-middle border-none shadow-lg" src="./assets/img/team-1-800x800.jpg"/>
-                  </span>
+                            <span class="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
+                                <img alt="..." class="w-full rounded-full align-middle border-none shadow-lg" src="{{ url('assets/dashboard/assets/img/team-1-800x800.jpg') }}"/>
+                            </span>
                         </div>
                     </a>
                     <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width: 12rem;" id="user-dropdown">
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Action</a>
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Another action</a>
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Something else here</a>
+                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Action</a>
+                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Another action</a>
+                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Something else here</a>
                         <div class="h-0 my-2 border border-solid border-gray-200"></div>
-                        <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Seprated link</a>
+                        <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Seprated link</a>
                     </div>
                 </ul>
             </div>
