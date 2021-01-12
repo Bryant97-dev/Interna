@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="shortcut icon" href="{{ url('assets/landing/assets/img/favicon.ico') }}" />
     <link
         rel="apple-touch-icon"
         sizes="76x76"
