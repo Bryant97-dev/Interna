@@ -14,7 +14,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        <link rel="shortcut icon" href="{{ url('assets/dashboard/assets/img/favicon.ico') }}" />
         <link
             rel="apple-touch-icon"
             sizes="76x76"
