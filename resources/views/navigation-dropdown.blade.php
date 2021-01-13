@@ -66,7 +66,7 @@
     <div class="relative md:ml-64 bg-gray-100">
         <nav class="absolute top-0 left-0 w-full z-10 bg-transparent md:flex-row md:flex-no-wrap md:justify-start flex items-center p-4">
             <div class="w-full mx-autp items-center flex justify-between md:flex-no-wrap flex-wrap md:px-10 px-4">
-                <a class="text-white text-sm uppercase hidden lg:inline-block font-semibold" href="./index.html">Dashboard</a>
+                <a class="text-white text-sm uppercase hidden lg:inline-block font-semibold">@yield('header')</a>
                 <ul class="flex-col md:flex-row list-none items-center hidden md:flex">
                     <a class="text-gray-600 block" href="#" onclick="openDropdown(event,'user-dropdown')">
                         <div class="items-center flex">
