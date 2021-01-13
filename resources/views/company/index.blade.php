@@ -1,10 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Company Data
-        </h2>
-    </x-slot>
-
+    @section('content')
     <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
         <div class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -110,4 +105,5 @@
             </div>
         </div>
     </div>
+    @endsection
 </x-app-layout>
