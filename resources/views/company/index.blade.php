@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('header', 'Company Data')
     @section('content')
     <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
         <div class="py-12 bg-white">
