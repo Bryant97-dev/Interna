@@ -6,7 +6,7 @@
                 <div>
                     <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
                         <div class="mt-5 md:mt-0 md:col-span-2">
-                            <form method="post" action="{{ route('users.update', $user->id) }}">
+                            <form method="post" action="{{ route('user.update', $user->id) }}">
                                 @csrf
                                 @method('put')
                                 <div class="shadow overflow-hidden sm:rounded-md">

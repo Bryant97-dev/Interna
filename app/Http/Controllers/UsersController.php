@@ -35,7 +35,7 @@ class UsersController extends Controller
         $user = User::create($request->validated());
         $user->roles()->sync($request->input('roles', []));
 
-        return redirect()->route('users.index');
+        return redirect()->route('user.index');
     }
 
     public function show(User $user)
@@ -61,7 +61,7 @@ class UsersController extends Controller
         $user->update($request->validated());
         $user->roles()->sync($request->input('roles', []));
 
-        return redirect()->route('users.index');
+        return redirect()->route('user.index');
     }
 
     public function destroy(User $user)
@@ -70,6 +70,6 @@ class UsersController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('user.index');
     }
 }
