@@ -46,36 +46,34 @@
                 <ul class="md:flex-col md:min-w-full flex flex-col list-none">
                     <li class="items-center">
                         <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
+                            <i class="fas fa-tv opacity-75 mr-2 text-sm"></i>{{ __('Dashboard') }}
                         </x-jet-nav-link>
-{{--                            <i class="fas fa-tv opacity-75 mr-2 text-sm"></i>--}}
                     </li>
                     @canany(['admin_timeline_access', 'user_timeline_access'])
                     <li class="items-center">
                         <x-jet-nav-link href="{{ route('timeline.index') }}" :active="request()->routeIs('timeline.*')">
-                            {{ __('Timeline') }}
+                            <i class="fas fa-calendar opacity-75 mr-2 text-sm"></i>{{ __('Timeline') }}
                         </x-jet-nav-link>
-{{--                            <i class="fas fa-user-circle text-gray-500 mr-2 text-sm"></i>--}}
                     </li>
                     @endcan
                     @can('administrative_data_access')
                     <li class="items-center">
                         <x-jet-nav-link href="{{ route('administrative.index') }}" :active="request()->routeIs('administrative.*')">
-                            {{ __('Administrative Data') }}
+                            <i class="fas fa-file-signature opacity-75 mr-2 text-sm"></i>{{ __('Administrative Data') }}
                         </x-jet-nav-link>
                     </li>
                     @endcan
                     @can('company_access')
                     <li class="items-center">
                         <x-jet-nav-link href="{{ route('company.index') }}" :active="request()->routeIs('company.*')">
-                            {{ __('Company Data') }}
+                            <i class="fas fa-building opacity-75 mr-2 text-sm"></i>{{ __('Company Data') }}
                         </x-jet-nav-link>
                     </li>
                     @endcan
                     @can('user_access')
                     <li class="items-center">
                         <x-jet-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('user.*')">
-                            {{ __('User') }}
+                            <i class="fas fa-user opacity-75 mr-2 text-sm"></i>{{ __('User') }}
                         </x-jet-nav-link>
                     </li>
                     @endcan
