@@ -82,7 +82,7 @@
         </div>
     </nav>
     <div class="relative md:ml-64 bg-white">
-        <nav class="absolute top-0 left-0 w-full z-10 bg-indigo md:flex-row md:flex-no-wrap md:justify-start flex items-center p-4">
+        <nav class="absolute top-0 left-0 w-full z-10 bg-indigo-600 md:flex-row md:flex-no-wrap md:justify-start flex items-center p-4">
             <div class="w-full mx-autp items-center flex justify-between md:flex-no-wrap flex-wrap md:px-10 px-4">
                 <a class="text-white text-sm uppercase hidden lg:inline-block font-semibold">@yield('header')</a>
                 <ul class="flex-col md:flex-row list-none items-center hidden md:flex">
