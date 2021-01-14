@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('user', [\App\Http\Controllers\Api\UserController::class, 'user']);
     Route::get('timeline', [\App\Http\Controllers\Api\TimelineController::class, 'timeline']);
+    Route::get('company', [\App\Http\Controllers\Api\CompanyController::class, 'company']);
 });
 
 Route::post('login', [\App\Http\Controllers\Api\LoginController::class, 'login']);
