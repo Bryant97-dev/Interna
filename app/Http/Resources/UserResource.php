@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\URL;
 
 class UserResource extends JsonResource
 {
@@ -17,6 +18,10 @@ class UserResource extends JsonResource
         if (empty($this->profile_photo_path))
         {
             $this->profile_photo_path = $this->profile_photo_url;
+        }
+        else
+        {
+            $this->profile_photo_path = URL::to('/storage/'.$this->profile_photo_path);
         }
         return [
             'id'                    => $this->id,
