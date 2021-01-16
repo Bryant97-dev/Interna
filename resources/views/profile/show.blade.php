@@ -1,7 +1,7 @@
 <x-app-layout>
     @section('header', 'Edit Profile')
     @section('content')
-        <div class="relative bg-indigo-600 md:pt-32 pb-32 pt-12">
+        <div class="relative md:pt-32 pb-32 pt-12">
             <div class="px-4 md:px-10 mx-auto w-full">
                 <div>
                     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
