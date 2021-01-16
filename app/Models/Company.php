@@ -15,6 +15,7 @@ class Company extends Model
         'name',
         'address',
         'supervisor',
+        'supervisor_contact',
         'email',
         'phone',
         'npwp',

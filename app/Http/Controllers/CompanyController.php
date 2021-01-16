@@ -28,6 +28,7 @@ class CompanyController extends Controller
         $name = null;
         $address = null;
         $supervisor = null;
+        $supervisor_contact = null;
         $email = null;
         $phone = null;
         $npwp = null;
@@ -44,6 +45,7 @@ class CompanyController extends Controller
             $name = $c->name;
             $address = $c->address;
             $supervisor = $c->supervisor;
+            $supervisor_contact = $c->supervisor_contact;
             $email = $c->email;
             $phone = $c->phone;
             $npwp = $c->npwp;
@@ -53,6 +55,7 @@ class CompanyController extends Controller
             'name' => $name,
             'address' => $address,
             'supervisor' => $supervisor,
+            'supervisor_contact' => $supervisor_contact,
             'email' => $email,
             'phone' => $phone,
             'npwp' => $npwp,

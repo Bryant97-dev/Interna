@@ -38,6 +38,15 @@
                                     </div>
 
                                     <div class="px-4 py-5 bg-white sm:p-6">
+                                        <label for="supervisor_contact" class="block font-medium text-sm text-gray-700">Supervisor Contact</label>
+                                        <input type="number" name="supervisor_contact" id="supervisor_contact" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                               value="{{ old('supervisor_contact', $company->supervisor_contact) }}" />
+                                        @error('supervisor_contact')
+                                        <p class="text-sm text-red-600">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="px-4 py-5 bg-white sm:p-6">
                                         <label for="email" class="block font-medium text-sm text-gray-700">Email</label>
                                         <input type="email" name="email" id="email" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                                value="{{ old('email', $company->email) }}" />

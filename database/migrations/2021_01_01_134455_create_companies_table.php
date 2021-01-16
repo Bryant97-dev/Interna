@@ -18,6 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('supervisor');
+            $table->string('supervisor_contact');
             $table->string('email');
             $table->string('phone');
             $table->string('npwp');

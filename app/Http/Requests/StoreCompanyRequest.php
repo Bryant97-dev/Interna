@@ -34,6 +34,9 @@ class StoreCompanyRequest extends FormRequest
             'supervisor' => [
                 'required', 'string',
             ],
+            'supervisor_contact' => [
+                'required', 'string',
+            ],
             'email' => [
                 'required', 'string',
             ],
