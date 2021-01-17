@@ -48,7 +48,7 @@
                 </li>
                 @canany(['admin_timeline_access', 'user_timeline_access'])
                     <li class="items-center">
-                        <x-jet-nav-link href="{{ route('timeline') }}" :active="request()->routeIs('timeline')">
+                        <x-jet-nav-link href="{{ route('timeline.index') }}" :active="request()->routeIs('timeline.*')">
                             <i class="fas fa-calendar opacity-75 mr-2 text-sm"></i>{{ __('Timeline') }}
                         </x-jet-nav-link>
                     </li>

@@ -23,8 +23,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', \App\Http\Controllers\UsersController::class);
-//    Route::resource('timeline', \App\Http\Controllers\TimelineController::class);
+    Route::resource('timeline', \App\Http\Controllers\TimelineController::class);
     Route::resource('company', \App\Http\Controllers\CompanyController::class);
     Route::resource('administrative', \App\Http\Controllers\AdministrativeController::class);
-    Route::get('timeline', \App\Http\Livewire\Timelines::class)->name('timeline');
 });
