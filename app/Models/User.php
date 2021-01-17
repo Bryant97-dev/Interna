@@ -97,7 +97,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Score::class, 'user_id', 'id');
     }
 
-    public function administrative_data() {
+    public function administratives() {
         return $this->hasMany(Administrative::class, 'user_id', 'id');
     }
 }
