@@ -14,11 +14,11 @@ class Company extends Model
     protected $fillable = [
         'name',
         'address',
-        'supervisor',
-        'supervisor_contact',
         'email',
-        'phone',
+        'company_phone',
         'npwp',
+        'supervisor',
+        'supervisor_phone',
     ];
 
     public function users()

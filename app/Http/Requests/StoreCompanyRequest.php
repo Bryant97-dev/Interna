@@ -31,19 +31,19 @@ class StoreCompanyRequest extends FormRequest
             'address' => [
                 'required', 'string',
             ],
-            'supervisor' => [
-                'required', 'string',
-            ],
-            'supervisor_contact' => [
-                'required', 'string',
-            ],
             'email' => [
                 'required', 'string',
             ],
-            'phone' => [
+            'company_phone' => [
                 'required', 'string',
             ],
             'npwp' => [
+                'required', 'string',
+            ],
+            'supervisor' => [
+                'required', 'string',
+            ],
+            'supervisor_phone' => [
                 'required', 'string',
             ],
         ];

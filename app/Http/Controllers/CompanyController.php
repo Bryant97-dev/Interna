@@ -27,11 +27,11 @@ class CompanyController extends Controller
         $id = null;
         $name = null;
         $address = null;
-        $supervisor = null;
-        $supervisor_contact = null;
         $email = null;
-        $phone = null;
+        $company_phone = null;
         $npwp = null;
+        $supervisor = null;
+        $supervisor_phone = null;
         $users = DB::table('company_user')->where('user_id', '=', Auth::id())->get();
         foreach ($users as $u)
         {
@@ -44,21 +44,21 @@ class CompanyController extends Controller
             $id = $c->id;
             $name = $c->name;
             $address = $c->address;
-            $supervisor = $c->supervisor;
-            $supervisor_contact = $c->supervisor_contact;
             $email = $c->email;
-            $phone = $c->phone;
+            $company_phone = $c->company_phone;
             $npwp = $c->npwp;
+            $supervisor = $c->supervisor;
+            $supervisor_phone = $c->supervisor_phone;
         }
         return view('company.index',[
             'id' => $id,
             'name' => $name,
             'address' => $address,
-            'supervisor' => $supervisor,
-            'supervisor_contact' => $supervisor_contact,
             'email' => $email,
-            'phone' => $phone,
+            'company_phone' => $company_phone,
             'npwp' => $npwp,
+            'supervisor' => $supervisor,
+            'supervisor_phone' => $supervisor_phone,
             'companies' => $gg,
         ]);
     }

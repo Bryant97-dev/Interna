@@ -16,7 +16,7 @@
                                     {{ $address ?: 'There is no data' }}
                                 </p>
                                 <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                                    {{ $phone ?: 'There is no data' }}
+                                    {{ $company_phone ?: 'There is no data' }}
                                 </p>
                             </div>
 
@@ -69,10 +69,10 @@
                                         </div>
                                         <div class="ml-4">
                                             <dt class="text-lg leading-6 font-medium text-gray-900">
-                                                Supervisor Contact
+                                                Supervisor Phone
                                             </dt>
                                             <dd class="mt-2 text-base text-gray-500">
-                                                {{ $supervisor_contact ?: 'There is no data' }}
+                                                {{ $supervisor_phone ?: 'There is no data' }}
                                             </dd>
                                         </div>
                                     </div>

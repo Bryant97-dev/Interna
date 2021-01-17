@@ -30,24 +30,6 @@
                                 </div>
 
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="supervisor" class="block font-medium text-sm text-gray-700">Supervisor</label>
-                                    <input type="text" name="supervisor" id="supervisor" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                           value="{{ old('supervisor', $company->supervisor) }}" />
-                                    @error('supervisor')
-                                    <p class="text-sm text-red-600">{{ $message }}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="supervisor_contact" class="block font-medium text-sm text-gray-700">Supervisor Contact</label>
-                                    <input type="number" name="supervisor_contact" id="supervisor_contact" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                           value="{{ old('supervisor_contact', $company->supervisor_contact) }}" />
-                                    @error('supervisor_contact')
-                                    <p class="text-sm text-red-600">{{ $message }}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="px-4 py-5 bg-white sm:p-6">
                                     <label for="email" class="block font-medium text-sm text-gray-700">Email</label>
                                     <input type="email" name="email" id="email" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('email', $company->email) }}" />
@@ -57,10 +39,10 @@
                                 </div>
 
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="phone" class="block font-medium text-sm text-gray-700">Phone</label>
-                                    <input type="number" name="phone" id="phone" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                           value="{{ old('phone', $company->phone) }}" />
-                                    @error('phone')
+                                    <label for="company_phone" class="block font-medium text-sm text-gray-700">Company Phone</label>
+                                    <input type="number" name="company_phone" id="company_phone" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                           value="{{ old('company_phone', $company->company_phone) }}" />
+                                    @error('company_phone')
                                     <p class="text-sm text-red-600">{{ $message }}</p>
                                     @enderror
                                 </div>
@@ -74,6 +56,23 @@
                                     @enderror
                                 </div>
 
+                                <div class="px-4 py-5 bg-white sm:p-6">
+                                    <label for="supervisor" class="block font-medium text-sm text-gray-700">Supervisor</label>
+                                    <input type="text" name="supervisor" id="supervisor" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                           value="{{ old('supervisor', $company->supervisor) }}" />
+                                    @error('supervisor')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="px-4 py-5 bg-white sm:p-6">
+                                    <label for="supervisor_phone" class="block font-medium text-sm text-gray-700">Supervisor Phone</label>
+                                    <input type="number" name="supervisor_phone" id="supervisor_phone" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                           value="{{ old('supervisor_phone', $company->supervisor_phone) }}" />
+                                    @error('supervisor_phone')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                    @enderror
+                                </div>
                                 <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
                                     <button class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                                         Save
