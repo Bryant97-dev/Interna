@@ -26,4 +26,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('timeline', \App\Http\Controllers\TimelineController::class);
     Route::resource('company', \App\Http\Controllers\CompanyController::class);
     Route::resource('administrative', \App\Http\Controllers\AdministrativeController::class);
+    Route::resource('report', \App\Http\Controllers\ReportController::class);
 });

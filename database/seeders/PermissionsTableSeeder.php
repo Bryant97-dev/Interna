@@ -20,10 +20,13 @@ class PermissionsTableSeeder extends Seeder
                 'title' => 'user_timeline_access',
             ],
             [
-                'title' => 'company_access',
+                'title' => 'administrative_data_access',
             ],
             [
-                'title' => 'administrative_data_access',
+                'title' => 'report_access',
+            ],
+            [
+                'title' => 'company_access',
             ],
         ];
 

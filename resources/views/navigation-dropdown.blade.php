@@ -60,6 +60,13 @@
                         </x-jet-nav-link>
                     </li>
                 @endcan
+                @can('report_access')
+                    <li class="items-center">
+                        <x-jet-nav-link href="{{ route('report.index') }}" :active="request()->routeIs('report.*')">
+                            <i class="fas fa-file-alt opacity-75 mr-2 text-sm"></i>{{ __('Report') }}
+                        </x-jet-nav-link>
+                    </li>
+                @endcan
                 @can('company_access')
                     <li class="items-center">
                         <x-jet-nav-link href="{{ route('company.index') }}" :active="request()->routeIs('company.*')">
