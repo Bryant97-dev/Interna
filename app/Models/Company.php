@@ -16,9 +16,11 @@ class Company extends Model
         'address',
         'email',
         'company_phone',
-        'npwp',
         'supervisor',
         'supervisor_phone',
+        'npwp',
+        'siup',
+        'status',
     ];
 
     public function users()

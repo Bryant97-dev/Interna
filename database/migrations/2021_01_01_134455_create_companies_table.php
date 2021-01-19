@@ -17,11 +17,13 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
-            $table->string('email');
-            $table->string('company_phone');
-            $table->string('npwp');
+            $table->string('email')->nullable();
+            $table->string('company_phone')->nullable();
             $table->string('supervisor');
-            $table->string('supervisor_phone');
+            $table->string('supervisor_phone')->nullable();
+            $table->string('npwp')->nullable();
+            $table->string('siup')->nullable();
+            $table->boolean('status')->default('0');
             $table->timestamps();
         });
     }

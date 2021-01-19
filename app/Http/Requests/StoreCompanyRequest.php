@@ -32,20 +32,23 @@ class StoreCompanyRequest extends FormRequest
                 'required', 'string',
             ],
             'email' => [
-                'required', 'string',
+                'string',
             ],
             'company_phone' => [
-                'required', 'string',
-            ],
-            'npwp' => [
-                'required', 'string',
+                'string',
             ],
             'supervisor' => [
                 'required', 'string',
             ],
             'supervisor_phone' => [
-                'required', 'string',
+                'string',
             ],
+            'npwp' => [
+                'string',
+            ],
+            'siup' => [
+                'string',
+            ]
         ];
     }
 }

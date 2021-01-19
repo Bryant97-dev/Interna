@@ -29,9 +29,11 @@ class CompanyController extends Controller
         $address = null;
         $email = null;
         $company_phone = null;
-        $npwp = null;
         $supervisor = null;
         $supervisor_phone = null;
+        $npwp = null;
+        $siup = null;
+        $status = null;
         $users = DB::table('company_user')->where('user_id', '=', Auth::id())->get();
         foreach ($users as $u)
         {
@@ -46,9 +48,11 @@ class CompanyController extends Controller
             $address = $c->address;
             $email = $c->email;
             $company_phone = $c->company_phone;
-            $npwp = $c->npwp;
             $supervisor = $c->supervisor;
             $supervisor_phone = $c->supervisor_phone;
+            $npwp = $c->npwp;
+            $siup = $c->siup;
+            $status = $c->status;
         }
         return view('company.index',[
             'id' => $id,
@@ -56,9 +60,11 @@ class CompanyController extends Controller
             'address' => $address,
             'email' => $email,
             'company_phone' => $company_phone,
-            'npwp' => $npwp,
             'supervisor' => $supervisor,
             'supervisor_phone' => $supervisor_phone,
+            'npwp' => $npwp,
+            'siup' => $siup,
+            'status' => $status,
             'companies' => $gg,
         ]);
     }
@@ -122,7 +128,19 @@ class CompanyController extends Controller
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
-        $company->update($request->validated());
+        $data = $request->validated();
+
+        $company->update([
+            'name' => $data['name'],
+            'address' => $data['address'],
+            'email' => $data['email'],
+            'company_phone' => $data['company_phone'],
+            'supervisor' => $data['supervisor'],
+            'supervisor_phone' => $data['supervisor_phone'],
+            'npwp' => $data['npwp'],
+            'siup' => $data['siup'],
+            'status' => 0,
+        ]);
 
         return redirect()->route('company.index');
     }

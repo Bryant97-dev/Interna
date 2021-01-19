@@ -48,15 +48,6 @@
                                 </div>
 
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="npwp" class="block font-medium text-sm text-gray-700">NPWP</label>
-                                    <input type="text" name="npwp" id="npwp" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                           value="{{ old('npwp', $company->npwp) }}" />
-                                    @error('npwp')
-                                    <p class="text-sm text-red-600">{{ $message }}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="px-4 py-5 bg-white sm:p-6">
                                     <label for="supervisor" class="block font-medium text-sm text-gray-700">Supervisor</label>
                                     <input type="text" name="supervisor" id="supervisor" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('supervisor', $company->supervisor) }}" />
@@ -70,6 +61,24 @@
                                     <input type="number" name="supervisor_phone" id="supervisor_phone" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('supervisor_phone', $company->supervisor_phone) }}" />
                                     @error('supervisor_phone')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="px-4 py-5 bg-white sm:p-6">
+                                    <label for="npwp" class="block font-medium text-sm text-gray-700">NPWP</label>
+                                    <input type="text" name="npwp" id="npwp" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                           value="{{ old('npwp', $company->npwp) }}" />
+                                    @error('npwp')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="px-4 py-5 bg-white sm:p-6">
+                                    <label for="siup" class="block font-medium text-sm text-gray-700">SIUP</label>
+                                    <input type="text" name="siup" id="siup" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                           value="{{ old('siup', $company->siup) }}" />
+                                    @error('siup')
                                     <p class="text-sm text-red-600">{{ $message }}</p>
                                     @enderror
                                 </div>
