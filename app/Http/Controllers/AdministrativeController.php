@@ -114,7 +114,13 @@ class AdministrativeController extends Controller
         }
         else
         {
-            $administrative->update($request->validated());
+            $data = $request->validated();
+
+            $administrative->update([
+                'title' => $data['title'],
+                'description' => $data['description'],
+                'status' => 0,
+            ]);
         }
 
         return redirect()->route('administrative.index');

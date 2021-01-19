@@ -114,7 +114,13 @@ class ReportController extends Controller
         }
         else
         {
-            $report->update($request->validated());
+            $data = $request->validated();
+
+            $report->update([
+                'title' => $data['title'],
+                'description' => $data['description'],
+                'status' => 0,
+            ]);
         }
 
         return redirect()->route('report.index');
