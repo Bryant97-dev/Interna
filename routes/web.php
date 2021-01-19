@@ -18,10 +18,7 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
-    Route::get('/dashboard', function() {
-        return view('dashboard');
-    })->name('dashboard');
-
+    Route::get('dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::resource('user', \App\Http\Controllers\UsersController::class);
     Route::resource('timeline', \App\Http\Controllers\TimelineController::class);
     Route::resource('company', \App\Http\Controllers\CompanyController::class);

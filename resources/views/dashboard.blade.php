@@ -12,11 +12,9 @@
                                 <div class="flex flex-wrap">
                                     <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
                                         <h5 class="text-gray-500 uppercase font-bold text-xs">
-                                            Traffic
+                                            Available Timeline
                                         </h5>
-                                        <span class="font-semibold text-xl text-gray-800">
-                            350,897
-                          </span>
+                                        <span class="font-semibold text-xl text-gray-800">{{ count($timelines) }}</span>
                                     </div>
                                     <div class="relative w-auto pl-4 flex-initial">
                                         <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-red-500">
@@ -25,12 +23,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm text-gray-500 mt-4">
-                        <span class="text-green-500 mr-2">
-                          <i class="fas fa-arrow-up"></i> 3.48%
-                        </span>
+                                    <span class="text-green-500 mr-2">
+                                        <i class="fas fa-arrow-up"></i> 3.48%
+                                    </span>
                                     <span class="whitespace-no-wrap">
-                          Since last month
-                        </span>
+                                        Since last month
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -41,11 +39,9 @@
                                 <div class="flex flex-wrap">
                                     <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
                                         <h5 class="text-gray-500 uppercase font-bold text-xs">
-                                            New users
+                                            Rejected Administrative Data
                                         </h5>
-                                        <span class="font-semibold text-xl text-gray-800">
-                            2,356
-                          </span>
+                                        <span class="font-semibold text-xl text-gray-800">{{ count($administrative_datas) }}</span>
                                     </div>
                                     <div class="relative w-auto pl-4 flex-initial">
                                         <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-orange-500">
@@ -54,12 +50,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm text-gray-500 mt-4">
-                        <span class="text-red-500 mr-2">
-                          <i class="fas fa-arrow-down"></i> 3.48%
-                        </span>
+                                    <span class="text-red-500 mr-2">
+                                        <i class="fas fa-arrow-down"></i> 3.48%
+                                    </span>
                                     <span class="whitespace-no-wrap">
-                          Since last week
-                        </span>
+                                        Since last week
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -70,11 +66,9 @@
                                 <div class="flex flex-wrap">
                                     <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
                                         <h5 class="text-gray-500 uppercase font-bold text-xs">
-                                            Sales
+                                            Rejected Report
                                         </h5>
-                                        <span class="font-semibold text-xl text-gray-800">
-                            924
-                          </span>
+                                        <span class="font-semibold text-xl text-gray-800">{{ count($reports) }}</span>
                                     </div>
                                     <div class="relative w-auto pl-4 flex-initial">
                                         <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-pink-500">
@@ -83,12 +77,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm text-gray-500 mt-4">
-                        <span class="text-orange-500 mr-2">
-                          <i class="fas fa-arrow-down"></i> 1.10%
-                        </span>
+                                    <span class="text-orange-500 mr-2">
+                                        <i class="fas fa-arrow-down"></i> 1.10%
+                                    </span>
                                     <span class="whitespace-no-wrap">
-                          Since yesterday
-                        </span>
+                                        Since yesterday
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -99,11 +93,19 @@
                                 <div class="flex flex-wrap">
                                     <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
                                         <h5 class="text-gray-500 uppercase font-bold text-xs">
-                                            Performance
+                                            Your Company Data
                                         </h5>
-                                        <span class="font-semibold text-xl text-gray-800">
-                            49,65%
-                          </span>
+                                        @if(empty($gg))
+                                            <span class="font-semibold text-xl text-gray-800">No Data</span>
+                                        @else
+                                            @if(empty($status))
+                                                <span class="font-semibold text-xl text-gray-800">Pending</span>
+                                            @elseif($status == 1)
+                                                <span class="font-semibold text-xl text-green-800">Approved</span>
+                                            @elseif($status == 2)
+                                                <span class="font-semibold text-xl text-red-800">Rejected</span>
+                                            @endif
+                                        @endif
                                     </div>
                                     <div class="relative w-auto pl-4 flex-initial">
                                         <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-blue-500">
@@ -112,12 +114,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm text-gray-500 mt-4">
-                        <span class="text-green-500 mr-2">
-                          <i class="fas fa-arrow-up"></i> 12%
-                        </span>
+                                    <span class="text-green-500 mr-2">
+                                        <i class="fas fa-arrow-up"></i> 12%
+                                    </span>
                                     <span class="whitespace-no-wrap">
-                          Since last month
-                        </span>
+                                        Since last month
+                                    </span>
                                 </p>
                             </div>
                         </div>
