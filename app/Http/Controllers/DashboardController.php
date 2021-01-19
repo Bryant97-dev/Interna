@@ -21,6 +21,7 @@ class DashboardController extends Controller
         $reports = Report::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 2)->get();
         $gg = [];
         $status = null;
+        $company = null;
         $users = DB::table('company_user')->where('user_id', '=', Auth::id())->get();
         foreach ($users as $u)
         {
@@ -31,7 +32,11 @@ class DashboardController extends Controller
         foreach ($companies as $c)
         {
             $status = $c->status;
+            $company = $c->name;
         }
+
+        $model = Company::where('name', 'LIKE', $company)->get();
+//        return $model;
 
         return view('dashboard', compact('timelines', 'administrative_datas', 'reports', 'gg', 'status'));
     }
