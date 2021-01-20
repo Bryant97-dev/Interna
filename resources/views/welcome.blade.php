@@ -25,6 +25,7 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css"
     />
+    @livewireStyles
 </head>
 <body class="text-gray-800 antialiased">
 <nav
@@ -475,4 +476,6 @@
         document.getElementById(collapseID).classList.toggle("block");
     }
 </script>
+@livewireScripts
+<script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 </html>
