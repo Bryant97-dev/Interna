@@ -6,7 +6,7 @@
 
     <meta name="theme-color" content="#000000" />
 
-    <title>Laravel</title>
+    <title>Interna</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -109,7 +109,7 @@
                             Mudahkan Pencatatan Magangmu
                         </h1>
                         <p class="mt-4 text-lg text-gray-300">
-                            
+
                         </p>
                     </div>
                 </div>
