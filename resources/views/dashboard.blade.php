@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-4">
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-8">
                         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                             <div class="flex-auto p-4">
                                 <div class="flex flex-wrap">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-4">
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-8">
                         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                             <div class="flex-auto p-4">
                                 <div class="flex flex-wrap">
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-4">
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-8">
                         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                             <div class="flex-auto p-4">
                                 <div class="flex flex-wrap">
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-4">
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-8">
                         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                             <div class="flex-auto p-4">
                                 <div class="flex flex-wrap">
@@ -130,7 +130,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-4">
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-8">
                         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                             <div class="flex-auto p-4">
                                 <div class="flex flex-wrap">
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-4">
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 pt-8">
                         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                             <div class="flex-auto p-4">
                                 <div class="flex flex-wrap">
