@@ -20,9 +20,11 @@ class CompanyResource extends JsonResource
             'address'               => $this->address,
             'email'                 => $this->email,
             'company_phone'         => $this->company_phone,
-            'npwp'                  => $this->npwp,
             'supervisor'            => $this->supervisor,
             'supervisor_phone'      => $this->supervisor_phone,
+            'npwp'                  => $this->npwp,
+            'siup'                  => $this->siup,
+            'status'                => $this->status,
         ];
     }
 }
