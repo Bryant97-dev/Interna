@@ -17,6 +17,18 @@
                 </a>
                 <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width: 12rem;" id="user-responsive-dropdown">
                     <a href="{{ route('profile.show') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800" :active="request()->routeIs('profile.show')">Profile</a>
+                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                        <a href="{{ route('api-tokens.index') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800" :active="request()->routeIs('api-tokens.index')">API Tokens</a>
+                    @endif
+                    @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                        <a class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Manage Team</a>
+                        <a href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800" :active="request()->routeIs('teams.show')">Team Settings</a>
+                        <a href="{{ route('teams.create') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800" :active="request()->routeIs('teams.create')">Create New Team</a>
+                        <a class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">Switch Teams</a>
+                        @foreach (Auth::user()->allTeams() as $team)
+                            <x-jet-switchable-team :team="$team" component="jet-responsive-nav-link" />
+                        @endforeach
+                    @endif
                     <div class="h-0 my-2 border border-solid border-gray-200"></div>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
