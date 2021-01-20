@@ -16,7 +16,7 @@ class PermissionRoleTableSeeder extends Seeder
         });
         Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id'));
         $user_permissions = $permissions->filter(function ($permission) {
-            return !in_array($permission->title, ['admin_timeline_access', 'user_access'], true );
+            return !in_array($permission->title, ['admin_timeline_access', 'user_access', 'period_access'], true );
         });
         Role::findOrFail(2)->permissions()->sync($user_permissions);
     }

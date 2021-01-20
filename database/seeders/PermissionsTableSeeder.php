@@ -28,6 +28,9 @@ class PermissionsTableSeeder extends Seeder
             [
                 'title' => 'company_access',
             ],
+            [
+                'title' => 'period_access',
+            ],
         ];
 
         Permission::insert($permissions);

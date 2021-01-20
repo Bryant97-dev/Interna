@@ -24,4 +24,5 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::resource('company', \App\Http\Controllers\CompanyController::class);
     Route::resource('administrative', \App\Http\Controllers\AdministrativeController::class);
     Route::resource('report', \App\Http\Controllers\ReportController::class);
+    Route::resource('period', \App\Http\Controllers\PeriodController::class);
 });

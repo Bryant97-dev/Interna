@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePeriodRequest;
+use App\Http\Requests\UpdatePeriodRequest;
 use App\Models\Period;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class PeriodController extends Controller
 {
@@ -14,7 +18,11 @@ class PeriodController extends Controller
      */
     public function index()
     {
-        //
+        abort_if(Gate::denies('period_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $periods = Period::all();
+
+        return view('period.index', compact('periods'));
     }
 
     /**
@@ -24,7 +32,9 @@ class PeriodController extends Controller
      */
     public function create()
     {
-        //
+        abort_if(Gate::denies('period_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('period.create');
     }
 
     /**
@@ -33,9 +43,11 @@ class PeriodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePeriodRequest $request)
     {
-        //
+        Period::create($request->validated());
+
+        return redirect()->route('period.index');
     }
 
     /**
@@ -44,10 +56,10 @@ class PeriodController extends Controller
      * @param  \App\Models\Period  $period
      * @return \Illuminate\Http\Response
      */
-    public function show(Period $period)
-    {
-        //
-    }
+//    public function show(Period $period)
+//    {
+//        //
+//    }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +69,9 @@ class PeriodController extends Controller
      */
     public function edit(Period $period)
     {
-        //
+        abort_if(Gate::denies('period_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('period.edit', compact('period'));
     }
 
     /**
@@ -67,9 +81,11 @@ class PeriodController extends Controller
      * @param  \App\Models\Period  $period
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Period $period)
+    public function update(UpdatePeriodRequest $request, Period $period)
     {
-        //
+        $period->update($request->validated());
+
+        return redirect()->route('period.index');
     }
 
     /**
@@ -80,6 +96,10 @@ class PeriodController extends Controller
      */
     public function destroy(Period $period)
     {
-        //
+        abort_if(Gate::denies('period_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $period->delete();
+
+        return redirect()->route('period.index');
     }
 }
