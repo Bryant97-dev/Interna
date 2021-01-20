@@ -8,7 +8,7 @@
         <!-- Mobile -->
         <ul class="md:hidden items-center flex flex-wrap list-none">
             <li class="inline-block relative">
-                <a class="text-gray-600 block" href="#" onclick="openDropdown(event,'user-responsive-dropdown')">
+                <a class="text-gray-600 block" onclick="openDropdown(event,'user-responsive-dropdown')">
                     <div class="items-center flex">
                             <span class="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
                                 <img alt="{{ Auth::user()->name }}" class="w-full rounded-full align-middle border-none shadow-lg" src="{{ Auth::user()->profile_photo_url }}"/>
