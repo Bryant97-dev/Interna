@@ -13,11 +13,6 @@
 
     <!-- Styles -->
     <link
-        rel="apple-touch-icon"
-        sizes="76x76"
-        href="{{ url('assets/landing/assets/img/apple-icon.png') }}"
-    />
-    <link
         rel="stylesheet"
         href="{{ url('assets/landing/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}"
     />

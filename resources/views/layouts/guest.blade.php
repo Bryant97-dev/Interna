@@ -16,11 +16,6 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <link
-        rel="apple-touch-icon"
-        sizes="76x76"
-        href="{{ url('assets/login/assets/img/apple-icon.png') }}"
-    />
-    <link
         rel="stylesheet"
         href="{{ url('assets/login/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}"
     />
