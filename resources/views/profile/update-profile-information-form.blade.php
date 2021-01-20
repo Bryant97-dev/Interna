@@ -52,6 +52,14 @@
             </div>
         @endif
 
+        <?php
+        $users = DB::table('role_user')->where('user_id', '=', Auth::id())->get();
+        foreach ($users as $u)
+        {
+            $role = $u->role_id ;
+        }
+        ?>
+
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Name') }}" />
@@ -66,12 +74,14 @@
             <x-jet-input-error for="email" class="mt-2" />
         </div>
 
+        @if($role == 2)
         <!-- NIM -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="nim" value="{{ __('Nim') }}" />
             <x-jet-input id="nim" type="text" class="mt-1 block w-full" wire:model.defer="state.nim" autocomplete="nim" />
             <x-jet-input-error for="nim" class="mt-2" />
         </div>
+        @endif
 
         <!-- Gender -->
         <div class="col-span-6 sm:col-span-4">
