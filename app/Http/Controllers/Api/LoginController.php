@@ -32,12 +32,5 @@ class LoginController extends Controller
         return response([
             'message'    => "Success"
         ], 200);
-
-//        $user = User::where('email', $request->email)->first();
-//        Auth::guard('web')->logout();
-//        $user->tokens()->delete();
-//        return response()->json([
-//            'success'    => true
-//        ], 200);
     }
 }
