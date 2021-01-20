@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Administrative;
 use App\Models\Company;
 use App\Models\Report;
+use App\Models\StudyProgram;
 use App\Models\Timeline;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -51,7 +53,17 @@ class DashboardController extends Controller
             return view('dashboard', compact('timelines', 'administrative_datas_r', 'administrative_datas_p', 'administrative_datas_a', 'reports_r', 'reports_p', 'reports_a', 'gg', 'status'));
         }
         else {
-            return $au;
+            $period_now = User::with('periods')->where('period_id', '=', 1)->get();
+            $period_last = User::with('periods')->where('period_id', '=', 1-1)->get();
+            $admin = DB::table('role_user')->where('role_id', '=', 1)->get();
+            $user = DB::table('role_user')->where('role_id', '=', 2)->get();
+            $deparment = StudyProgram::where('id', '=', Auth::user()->study_program_id)->get();
+            foreach ($deparment as $d)
+            {
+                $deparment_name = $d->abbreviation;
+            }
+            return view('admin-dashboard', compact('period_now', 'period_last', 'admin', 'user', 'deparment_name'));
+//            return $deparment_name;
         }
     }
 }
