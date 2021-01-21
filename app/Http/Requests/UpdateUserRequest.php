@@ -12,10 +12,10 @@ class UpdateUserRequest extends FormRequest
         return [
             'name'    => [
                 'string',
-                'required',
+                'nullable',
             ],
             'email'   => [
-                'required',
+                'nullable',
                 'unique:users,email,' . request()->route('user')->id,
             ],
             'roles.*' => [
