@@ -50,16 +50,17 @@
                                     </div>
                                     <div class="mt-4">
                                         <x-jet-label for="study_program_id" value="{{ __('Study Program') }}" />
-                                        <select id="study_program_id" name="study_program_id" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md block mt-1 w-full" required>
+                                        <select id="study_program_id" name="study_program_id" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                                                style="transition: all 0.15s ease 0s;" required>
                                             @foreach ($study_programs as $study_program)
                                                 <option value="{{ $study_program->id }}">{{$study_program->abbreviation . ' (' . $study_program->study_program .')'}}</option>
                                             @endforeach
                                         </select>
                                     </div>
-
                                     <div class="mt-4">
                                         <x-jet-label for="period_id" value="{{ __('Period') }}" />
-                                        <select id="period_id" name="period_id" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md block mt-1 w-full" required>
+                                        <select id="period_id" name="period_id" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                                                style="transition: all 0.15s ease 0s;" required>
                                             @foreach ($periods as $period)
                                                 <option value="{{ $period->id }}">{{$period->period}}</option>
                                             @endforeach
