@@ -21,46 +21,58 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('company_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $id = null;
-        $name = null;
-        $address = null;
-        $email = null;
-        $company_phone = null;
-        $supervisor = null;
-        $supervisor_phone = null;
-        $npwp = null;
-        $siup = null;
-        $status = null;
-        $companies = Company::with('users')->where('user_id', '=', Auth::id())->get();
-
-        foreach ($companies as $c)
+        $auth = DB::table('role_user')->where('user_id', '=', Auth::id())->get();
+        foreach ($auth as $a)
         {
-            $id = $c->id;
-            $name = $c->name;
-            $address = $c->address;
-            $email = $c->email;
-            $company_phone = $c->company_phone;
-            $supervisor = $c->supervisor;
-            $supervisor_phone = $c->supervisor_phone;
-            $npwp = $c->npwp;
-            $siup = $c->siup;
-            $status = $c->status;
+            $au = $a->role_id;
         }
-        return view('company.index',[
-            'id' => $id,
-            'name' => $name,
-            'address' => $address,
-            'email' => $email,
-            'company_phone' => $company_phone,
-            'supervisor' => $supervisor,
-            'supervisor_phone' => $supervisor_phone,
-            'npwp' => $npwp,
-            'siup' => $siup,
-            'status' => $status,
-            'companies' => $companies,
-        ]);
+
+        if ($au == 1) {
+            $companies = Company::where('status', '=', 0)->get();
+            $users = User::all();
+
+            return view('admin-company.index', compact('companies', 'users'));
+        }
+        else {
+            $id = null;
+            $name = null;
+            $address = null;
+            $email = null;
+            $company_phone = null;
+            $supervisor = null;
+            $supervisor_phone = null;
+            $npwp = null;
+            $siup = null;
+            $status = null;
+            $companies = Company::with('users')->where('user_id', '=', Auth::id())->get();
+
+            foreach ($companies as $c)
+            {
+                $id = $c->id;
+                $name = $c->name;
+                $address = $c->address;
+                $email = $c->email;
+                $company_phone = $c->company_phone;
+                $supervisor = $c->supervisor;
+                $supervisor_phone = $c->supervisor_phone;
+                $npwp = $c->npwp;
+                $siup = $c->siup;
+                $status = $c->status;
+            }
+            return view('company.index',[
+                'id' => $id,
+                'name' => $name,
+                'address' => $address,
+                'email' => $email,
+                'company_phone' => $company_phone,
+                'supervisor' => $supervisor,
+                'supervisor_phone' => $supervisor_phone,
+                'npwp' => $npwp,
+                'siup' => $siup,
+                'status' => $status,
+                'companies' => $companies,
+            ]);
+        }
     }
 
     /**
@@ -148,4 +160,20 @@ class CompanyController extends Controller
 //    {
 //        //
 //    }
+
+    public function markasapproved(Company $company)
+    {
+        $company->status = 1;
+        $company->save();
+
+        return redirect()->route('company.index');
+    }
+
+    public function markasrejected(Company $company)
+    {
+        $company->status = 2;
+        $company->save();
+
+        return redirect()->route('company.index');
+    }
 }

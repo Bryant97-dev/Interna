@@ -24,6 +24,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::patch('timeline/done/{timeline}', [\App\Http\Controllers\TimelineController::class, 'markasdone'])->name('timeline.markasdone');
     Route::patch('timeline/undone/{timeline}', [\App\Http\Controllers\TimelineController::class, 'markasundone'])->name('timeline.markasundone');
     Route::resource('timeline', \App\Http\Controllers\TimelineController::class);
+    Route::patch('company/approved/{company}', [\App\Http\Controllers\CompanyController::class, 'markasapproved'])->name('company.markasapproved');
+    Route::patch('company/rejected/{company}', [\App\Http\Controllers\CompanyController::class, 'markasrejected'])->name('company.markasrejected');
     Route::resource('company', \App\Http\Controllers\CompanyController::class);
     Route::patch('administrative/approved/{administrative_data}', [\App\Http\Controllers\AdministrativeController::class, 'markasapproved'])->name('administrative.markasapproved');
     Route::patch('administrative/rejected/{administrative_data}', [\App\Http\Controllers\AdministrativeController::class, 'markasrejected'])->name('administrative.markasrejected');
