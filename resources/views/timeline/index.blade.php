@@ -68,6 +68,12 @@
                                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                             <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">
                                                         </form>
+                                                        <form action={{ route('timeline.markasdone', $timeline->id) }} method="POST">
+                                                            @method('PATCH')
+                                                            @csrf
+                                                            <input type="hidden" name="status" value="1" />
+                                                            <button     type="submit">Mark as done</button>
+                                                        </form>
                                                     </td>
                                                 @endcan
                                             </tr>

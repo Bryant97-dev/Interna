@@ -110,6 +110,16 @@ class TimelineController extends Controller
         return redirect()->route('timeline.index');
     }
 
+    public function markasdone(Timeline $timeline)
+    {
+        abort_if(Gate::denies('admin_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $timeline->status = 1;
+        $timeline->save();
+
+        return redirect()->route('timeline.index');
+    }
+
     public function markasundone(Timeline $timeline)
     {
         abort_if(Gate::denies('admin_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
