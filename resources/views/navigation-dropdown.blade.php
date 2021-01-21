@@ -96,7 +96,7 @@
                 @can('period_access')
                     <li class="items-center">
                         <x-jet-nav-link href="{{ route('period.index') }}" :active="request()->routeIs('period.*')">
-                            <i class="fas fa-user opacity-75 mr-2 text-sm"></i>{{ __('Period') }}
+                            <i class="fas fa-calendar-alt opacity-75 mr-2 text-sm"></i>{{ __('Period') }}
                         </x-jet-nav-link>
                     </li>
                 @endcan
