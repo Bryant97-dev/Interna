@@ -74,10 +74,28 @@
             <x-jet-input-error for="email" class="mt-2" />
         </div>
 
+        @if($role == 1)
+        <!-- NIDN -->
+            <div class="col-span-6 sm:col-span-4">
+                <x-jet-label for="nidn" value="{{ __('NIDN') }}" />
+                <x-jet-input id="nidn" type="text" class="mt-1 block w-full" wire:model.defer="state.nidn" autocomplete="nidn" />
+                <x-jet-input-error for="nidn" class="mt-2" />
+            </div>
+        @endif
+
+        @if($role == 1)
+        <!-- NIP -->
+            <div class="col-span-6 sm:col-span-4">
+                <x-jet-label for="nip" value="{{ __('NIP') }}" />
+                <x-jet-input id="nip" type="text" class="mt-1 block w-full" wire:model.defer="state.nip" autocomplete="nip" />
+                <x-jet-input-error for="nip" class="mt-2" />
+            </div>
+        @endif
+
         @if($role == 2)
         <!-- NIM -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="nim" value="{{ __('Nim') }}" />
+            <x-jet-label for="nim" value="{{ __('NIM') }}" />
             <x-jet-input id="nim" type="text" class="mt-1 block w-full" wire:model.defer="state.nim" autocomplete="nim" />
             <x-jet-input-error for="nim" class="mt-2" />
         </div>
@@ -104,12 +122,14 @@
             <x-jet-input-error for="phone" class="mt-2" />
         </div>
 
+        @if($role == 2)
         <!-- Batch -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="batch" value="{{ __('Batch') }}" />
             <x-jet-input id="batch" type="text" class="mt-1 block w-full" wire:model.defer="state.batch" autocomplete="batch" />
             <x-jet-input-error for="batch" class="mt-2" />
         </div>
+        @endif
 
         <!-- Description -->
         <div class="col-span-6 sm:col-span-4">
