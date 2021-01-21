@@ -24,16 +24,23 @@ class DashboardController extends Controller
             $au = $a->role_id;
         }
         if ($au == 1) {
-            $period_now = User::with('periods')->where('period_id', '=', 1)->get();
-            $period_last = User::with('periods')->where('period_id', '=', 1-1)->get();
-            $admin = DB::table('role_user')->where('role_id', '=', 1)->get();
-            $user = DB::table('role_user')->where('role_id', '=', 2)->get();
-            $deparment = StudyProgram::where('id', '=', Auth::user()->study_program_id)->get();
-            foreach ($deparment as $d)
+            $roles = DB::table('role_user')->where('role_id', '=', 2)->get();
+            foreach ($roles as $a)
             {
-                $deparment_name = $d->abbreviation;
+                $gg[] = $a->user_id;
             }
-            return view('admin-dashboard', compact('period_now', 'period_last', 'admin', 'user', 'deparment_name'));
+
+            $departments = DB::table('interna_study_programs')->where('id', '=', Auth::user()->study_program_id)->get();
+            foreach ($departments as $d)
+            {
+                $wp = $d->id;
+            }
+
+            $period_now = DB::table('users')->whereIn('id', $gg)->where('study_program_id', '=', $wp)->where('period_id', '=', 1)->get();
+            $period_last = DB::table('users')->whereIn('id', $gg)->where('study_program_id', '=', $wp)->where('period_id', '=', 1-1)->get();
+            $companies = Company::all();
+
+            return view('admin-dashboard', compact('period_now', 'period_last', 'companies'));
         }
         else {
             $timelines = Timeline::with('study_programs')->where('study_program_id', '=', Auth::user()->study_program_id)->where('status', '=', 0)->get();
