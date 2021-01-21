@@ -23,36 +23,7 @@ class DashboardController extends Controller
         {
             $au = $a->role_id;
         }
-        if ($au == 2) {
-            $timelines = Timeline::with('study_programs')->where('study_program_id', '=', Auth::user()->study_program_id)->where('status', '=', 0)->get();
-            $administrative_datas_r = Administrative::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 2)->get();
-            $administrative_datas_p = Administrative::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 0)->get();
-            $administrative_datas_a = Administrative::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 1)->get();
-            $reports_r = Report::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 2)->get();
-            $reports_p = Report::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 0)->get();
-            $reports_a = Report::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 1)->get();
-            $gg = [];
-            $status = null;
-            $company = null;
-            $users = DB::table('company_user')->where('user_id', '=', Auth::id())->get();
-            foreach ($users as $u)
-            {
-                $gg[] = $u->company_id;
-            }
-            $companies = Company::find($gg);
-
-            foreach ($companies as $c)
-            {
-                $status = $c->status;
-                $company = $c->name;
-            }
-
-            $model = Company::where('name', 'LIKE', $company)->get();
-//        return DB::table('role_user')->where('user_id', '=', Auth::id())->get();
-
-            return view('dashboard', compact('timelines', 'administrative_datas_r', 'administrative_datas_p', 'administrative_datas_a', 'reports_r', 'reports_p', 'reports_a', 'gg', 'status'));
-        }
-        else {
+        if ($au == 1) {
             $period_now = User::with('periods')->where('period_id', '=', 1)->get();
             $period_last = User::with('periods')->where('period_id', '=', 1-1)->get();
             $admin = DB::table('role_user')->where('role_id', '=', 1)->get();
@@ -63,7 +34,26 @@ class DashboardController extends Controller
                 $deparment_name = $d->abbreviation;
             }
             return view('admin-dashboard', compact('period_now', 'period_last', 'admin', 'user', 'deparment_name'));
-//            return $deparment_name;
+        }
+        else {
+            $timelines = Timeline::with('study_programs')->where('study_program_id', '=', Auth::user()->study_program_id)->where('status', '=', 0)->get();
+            $administrative_datas_r = Administrative::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 2)->get();
+            $administrative_datas_p = Administrative::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 0)->get();
+            $administrative_datas_a = Administrative::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 1)->get();
+            $reports_r = Report::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 2)->get();
+            $reports_p = Report::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 0)->get();
+            $reports_a = Report::with('users')->where('user_id', '=', Auth::id())->where('status', '=', 1)->get();
+            $status = null;
+            $company = null;
+            $companies = Company::with('users')->where('user_id', '=', Auth::id())->get();
+
+            foreach ($companies as $c)
+            {
+                $status = $c->status;
+                $company = $c->name;
+            }
+
+            return view('dashboard', compact('timelines', 'administrative_datas_r', 'administrative_datas_p', 'administrative_datas_a', 'reports_r', 'reports_p', 'reports_a', 'company', 'status'));
         }
     }
 }

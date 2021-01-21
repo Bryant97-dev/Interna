@@ -33,7 +33,7 @@
                                         <h5 class="text-gray-500 uppercase font-bold text-xs">
                                             Your Company Data
                                         </h5>
-                                        @if(empty($gg))
+                                        @if(empty($company))
                                             <span class="font-semibold text-xl text-gray-800">No Data</span>
                                         @else
                                             @if(empty($status))
