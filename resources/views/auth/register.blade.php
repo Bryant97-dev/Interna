@@ -92,7 +92,7 @@
                                             style="transition: all 0.15s ease 0s;" required autocomplete="new-password"
                                         />
                                         <div class="flex items-center justify-end mt-4">
-                                            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                                            <a class="underline text-sm text-indigo-600 hover:text-gray-900" href="{{ route('login') }}">
                                                 {{ __('Already registered?') }}
                                             </a>
                                         </div>
