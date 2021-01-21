@@ -86,11 +86,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Role::class);
     }
 
-    public function companies()
-    {
-        return $this->belongsToMany(Company::class);
-    }
-
     public function periods(){
         return $this->belongsTo(Period::class, 'period_id', 'id');
     }
@@ -109,5 +104,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function administratives() {
         return $this->hasMany(Administrative::class, 'user_id', 'id');
+    }
+
+    public function companies() {
+        return $this->hasMany(Company::class, 'user_id', 'id');
     }
 }

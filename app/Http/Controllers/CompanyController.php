@@ -23,7 +23,6 @@ class CompanyController extends Controller
     {
         abort_if(Gate::denies('company_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $gg = [];
         $id = null;
         $name = null;
         $address = null;
@@ -34,12 +33,7 @@ class CompanyController extends Controller
         $npwp = null;
         $siup = null;
         $status = null;
-        $users = DB::table('company_user')->where('user_id', '=', Auth::id())->get();
-        foreach ($users as $u)
-        {
-            $gg[] = $u->company_id ;
-        }
-        $companies = Company::find($gg);
+        $companies = Company::with('users')->where('user_id', '=', Auth::id())->get();
 
         foreach ($companies as $c)
         {
@@ -65,7 +59,7 @@ class CompanyController extends Controller
             'npwp' => $npwp,
             'siup' => $siup,
             'status' => $status,
-            'companies' => $gg,
+            'companies' => $companies,
         ]);
     }
 
@@ -89,8 +83,7 @@ class CompanyController extends Controller
      */
     public function store(StoreCompanyRequest $request)
     {
-        $companies = Company::create($request->validated());
-        $companies->users()->sync(Auth::id());
+        Company::create($request->validated());
 
         return redirect()->route('company.index');
     }

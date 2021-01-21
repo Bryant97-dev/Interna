@@ -48,7 +48,10 @@ class StoreCompanyRequest extends FormRequest
             ],
             'siup' => [
                 'string',
-            ]
+            ],
+            'user_id' => [
+                'integer',
+            ],
         ];
     }
 }
