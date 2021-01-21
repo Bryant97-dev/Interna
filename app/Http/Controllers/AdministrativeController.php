@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAdministrativeRequest;
 use App\Http\Requests\UpdateAdministrativeRequest;
 use App\Models\Administrative;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,11 +21,23 @@ class AdministrativeController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $auth = DB::table('role_user')->where('user_id', '=', Auth::id())->get();
+        foreach ($auth as $a)
+        {
+            $au = $a->role_id;
+        }
 
-        $administrative_datas = Administrative::with('users')->where('user_id', '=', Auth::id())->get();
+        if ($au == 1) {
+            $administrative_datas = Administrative::where('status', '=', 0)->get();
+            $users = User::all();
 
-        return view('administrative.index', compact('administrative_datas'));
+            return view('admin-administrative.index', compact('administrative_datas', 'users'));
+        }
+        else {
+            $administrative_datas = Administrative::with('users')->where('user_id', '=', Auth::id())->get();
+
+            return view('administrative.index', compact('administrative_datas'));
+        }
     }
 
     /**
@@ -137,6 +151,22 @@ class AdministrativeController extends Controller
         abort_if(Gate::denies('administrative_data_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $administrative->delete();
+
+        return redirect()->route('administrative.index');
+    }
+
+    public function markasapproved(Administrative $administrative_data)
+    {
+        $administrative_data->status = 1;
+        $administrative_data->save();
+
+        return redirect()->route('administrative.index');
+    }
+
+    public function markasrejected(Administrative $administrative_data)
+    {
+        $administrative_data->status = 2;
+        $administrative_data->save();
 
         return redirect()->route('administrative.index');
     }
