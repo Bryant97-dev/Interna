@@ -23,7 +23,7 @@
                                                 Email
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Email Verified At
+                                                Department
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Roles
@@ -48,9 +48,13 @@
                                                     {{ $user->email }}
                                                 </td>
 
+                                                @foreach ($study_programs as $study_program)
+                                                    @if ($user->study_program_id == $study_program->id)
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->email_verified_at }}
+                                                    {{ $study_program->abbreviation }}
                                                 </td>
+                                                    @endif
+                                                @endforeach
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                     @foreach ($user->roles as $role)

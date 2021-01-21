@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Role;
+use App\Models\StudyProgram;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -18,7 +19,9 @@ class UsersController extends Controller
 
         $users = User::with('roles')->get();
 
-        return view('users.index', compact('users'));
+        $study_programs = StudyProgram::all();
+
+        return view('users.index', compact('users', 'study_programs'));
     }
 
 //    public function create()
