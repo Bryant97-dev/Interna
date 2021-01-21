@@ -29,7 +29,7 @@ class DashboardController extends Controller
             $roles = DB::table('role_user')->where('role_id', '=', 2)->get();
             foreach ($roles as $a)
             {
-                $gg = $a->user_id;
+                $gg[] = $a->user_id;
             }
 
             $departments = DB::table('interna_study_programs')->where('id', '=', Auth::user()->study_program_id)->get();
