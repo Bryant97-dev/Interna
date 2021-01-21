@@ -19,8 +19,6 @@ class TimelineController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::allows('timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
         $timelines = Timeline::with('study_programs')->where('study_program_id', '=', Auth::user()->study_program_id)->where('status', '=', 0)->get();
 
         return view('timeline.index', compact('timelines'));
