@@ -28,6 +28,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::patch('administrative/approved/{administrative_data}', [\App\Http\Controllers\AdministrativeController::class, 'markasapproved'])->name('administrative.markasapproved');
     Route::patch('administrative/rejected/{administrative_data}', [\App\Http\Controllers\AdministrativeController::class, 'markasrejected'])->name('administrative.markasrejected');
     Route::resource('administrative', \App\Http\Controllers\AdministrativeController::class);
+    Route::patch('report/approved/{report}', [\App\Http\Controllers\ReportController::class, 'markasapproved'])->name('report.markasapproved');
+    Route::patch('report/rejected/{report}', [\App\Http\Controllers\ReportController::class, 'markasrejected'])->name('report.markasrejected');
     Route::resource('report', \App\Http\Controllers\ReportController::class);
     Route::resource('period', \App\Http\Controllers\PeriodController::class);
 });

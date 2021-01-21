@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreReportRequest;
 use App\Http\Requests\UpdateReportRequest;
 use App\Models\Report;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,11 +21,23 @@ class ReportController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('report_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $auth = DB::table('role_user')->where('user_id', '=', Auth::id())->get();
+        foreach ($auth as $a)
+        {
+            $au = $a->role_id;
+        }
 
-        $reports = Report::with('users')->where('user_id', '=', Auth::id())->get();
+        if ($au == 1) {
+            $reports = Report::where('status', '=', 0)->get();
+            $users = User::all();
 
-        return view('report.index', compact('reports'));
+            return view('admin-report.index', compact('reports', 'users'));
+        }
+        else {
+            $reports = Report::with('users')->where('user_id', '=', Auth::id())->get();
+
+            return view('report.index', compact('reports'));
+        }
     }
 
     /**
@@ -139,5 +153,21 @@ class ReportController extends Controller
         $report->delete();
 
         return redirect()->route('report.index');
+    }
+
+    public function markasapproved(Report $report)
+    {
+        $report->status = 1;
+        $report->save();
+
+        return redirect()->route('report.index');
+    }
+
+    public function markasrejected(Report $report)
+    {
+        $report->status = 2;
+        $report->save();
+
+        return redirect()->route('administrative.index');
     }
 }
