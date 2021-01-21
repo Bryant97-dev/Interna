@@ -62,7 +62,7 @@
                                                     <form action={{ route('company.markasrejected', $company->id) }} method="POST">
                                                         @method('PATCH')
                                                         @csrf
-                                                        <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr1-2">Reject</button>
+                                                        <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Reject</button>
                                                     </form>
                                                 </td>
                                             </tr>
