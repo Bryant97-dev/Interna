@@ -72,7 +72,7 @@
                                                             @method('PATCH')
                                                             @csrf
                                                             <input type="hidden" name="status" value="1" />
-                                                            <button     type="submit">Mark as done</button>
+                                                            <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Mark as done</button>
                                                         </form>
                                                     </td>
                                                 @endcan
