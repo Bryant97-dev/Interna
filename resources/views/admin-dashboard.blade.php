@@ -60,13 +60,15 @@
                                 </h3>
                             </div>
                             <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                                <button
+                                <a
                                     class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
                                     type="button"
                                     style="transition:all .15s ease"
+                                    href="/dashboard/pdf"
+                                    target="_blank"
                                 >
-                                    See all
-                                </button>
+                                    Export to PDF
+                                </a>
                             </div>
                         </div>
                     </div>

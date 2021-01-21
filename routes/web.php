@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::get('dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard/pdf', [\App\Http\Controllers\DashboardController::class, 'pdf']);
     Route::resource('user', \App\Http\Controllers\UsersController::class);
     Route::get('timeline/history', [\App\Http\Controllers\TimelineController::class, 'history'])->name('timeline.history');
     Route::patch('timeline/done/{timeline}', [\App\Http\Controllers\TimelineController::class, 'markasdone'])->name('timeline.markasdone');

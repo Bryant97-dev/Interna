@@ -8,6 +8,7 @@ use App\Models\Report;
 use App\Models\StudyProgram;
 use App\Models\Timeline;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -62,5 +63,26 @@ class DashboardController extends Controller
 
             return view('dashboard', compact('timelines', 'administrative_datas_r', 'administrative_datas_p', 'administrative_datas_a', 'reports_r', 'reports_p', 'reports_a', 'company', 'status'));
         }
+    }
+
+    public function pdf()
+    {
+        $roles = DB::table('role_user')->where('role_id', '=', 2)->get();
+        foreach ($roles as $a)
+        {
+            $gg[] = $a->user_id;
+        }
+
+        $departments = DB::table('interna_study_programs')->where('id', '=', Auth::user()->study_program_id)->get();
+        foreach ($departments as $d)
+        {
+            $wp = $d->id;
+        }
+
+        $period_now = DB::table('users')->whereIn('id', $gg)->where('study_program_id', '=', $wp)->where('period_id', '=', 1)->get();
+        $companies = Company::all();
+
+        $pdf = PDF::loadview('pdf', compact('period_now', 'companies'));
+        return $pdf->download('interna.pdf');
     }
 }
