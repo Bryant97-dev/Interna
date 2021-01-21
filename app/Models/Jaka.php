@@ -15,7 +15,7 @@ class Jaka extends Model
         'jaka',
     ];
 
-    public function lecturers() {
-        return $this->hasMany(Lecturer::class, 'jaka_id', 'id');
+    public function users() {
+        return $this->hasMany(User::class, 'jaka_id', 'id');
     }
 }

@@ -16,7 +16,7 @@ class Position extends Model
         'study_program',
     ];
 
-    public function lecturers() {
-        return $this->hasMany(Lecturer::class, 'position_id', 'id');
+    public function users() {
+        return $this->hasMany(User::class, 'position_id', 'id');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPositionIdToLecturersTable extends Migration
+class AddPositionIdToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddPositionIdToLecturersTable extends Migration
      */
     public function up()
     {
-        Schema::table('interna_lecturers', function (Blueprint $table) {
-            $table->unsignedBigInteger('position_id')->index()->after('id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('position_id')->index()->after('id')->nullable();
             $table->foreign('position_id')->references('id')->on('interna_positions')->onDelete('cascade');
         });
     }
@@ -26,7 +26,7 @@ class AddPositionIdToLecturersTable extends Migration
      */
     public function down()
     {
-        Schema::table('interna_lecturers', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('position_id');
         });
     }

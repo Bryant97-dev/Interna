@@ -29,12 +29,16 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'study_program_id',
         'period_id',
+        'nidn',
+        'nip',
         'nim',
         'gender',
         'line_account',
         'phone',
         'batch',
         'description',
+        'position_id',
+        'jaka_id',
     ];
 
     /**
@@ -105,5 +109,13 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function administratives() {
         return $this->hasMany(Administrative::class, 'user_id', 'id');
+    }
+
+    public function jakas(){
+        return $this->belongsTo(Jaka::class, 'jaka_id', 'id');
+    }
+
+    public function positions(){
+        return $this->belongsTo(Position::class, 'position_id', 'id');
     }
 }
