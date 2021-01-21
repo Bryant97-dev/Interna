@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::get('dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::resource('user', \App\Http\Controllers\UsersController::class);
+    Route::get('timeline/history', [\App\Http\Controllers\TimelineController::class, 'history'])->name('timeline.history');
+    Route::patch('timeline/history/{timeline}', [\App\Http\Controllers\TimelineController::class, 'markasundone'])->name('timeline.markasundone');
     Route::resource('timeline', \App\Http\Controllers\TimelineController::class);
     Route::resource('company', \App\Http\Controllers\CompanyController::class);
     Route::resource('administrative', \App\Http\Controllers\AdministrativeController::class);

@@ -59,10 +59,14 @@ class TimelineController extends Controller
      * @param  \App\Models\Timeline  $timeline
      * @return \Illuminate\Http\Response
      */
-//    public function show(Timeline $timeline)
-//    {
-//        //
-//    }
+    public function history()
+    {
+        abort_if(Gate::denies('admin_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $timelines = Timeline::with('study_programs')->where('study_program_id', '=', Auth::user()->study_program_id)->where('status', '=', 1)->get();
+
+        return view('timeline.history', compact('timelines'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -104,5 +108,15 @@ class TimelineController extends Controller
         $timeline->delete();
 
         return redirect()->route('timeline.index');
+    }
+
+    public function markasundone(Timeline $timeline)
+    {
+        abort_if(Gate::denies('admin_timeline_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $timeline->status = 0;
+        $timeline->save();
+
+        return redirect()->route('timeline.history');
     }
 }
