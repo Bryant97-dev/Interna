@@ -30,6 +30,8 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('batch')->nullable();
             $table->text('description')->nullable();
+            $table->string('position')->nullable();
+            $table->string('jaka')->nullable();
             $table->timestamps();
         });
     }

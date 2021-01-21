@@ -43,8 +43,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'phone' => $input['phone'],
                 'batch' => $input['batch'],
                 'description' => $input['description'],
-                'position_id' => $input['position_id'],
-                'jaka_id' => $input['jaka_id'],
+                'position' => $input['position'],
+                'jaka' => $input['jaka'],
             ])->save();
         }
     }

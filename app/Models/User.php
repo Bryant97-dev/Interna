@@ -37,8 +37,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'phone',
         'batch',
         'description',
-        'position_id',
-        'jaka_id',
+        'position',
+        'jaka',
     ];
 
     /**
@@ -109,13 +109,5 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function administratives() {
         return $this->hasMany(Administrative::class, 'user_id', 'id');
-    }
-
-    public function jakas(){
-        return $this->belongsTo(Jaka::class, 'jaka_id', 'id');
-    }
-
-    public function positions(){
-        return $this->belongsTo(Position::class, 'position_id', 'id');
     }
 }

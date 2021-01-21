@@ -58,7 +58,6 @@
         {
             $role = $u->role_id ;
         }
-        $jakas = \App\Models\Jaka::all();
         ?>
 
         <!-- Name -->
@@ -139,23 +138,23 @@
             <x-jet-input-error for="description" class="mt-2" />
         </div>
 
+        @if($role == 1)
         <!-- Position -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="position_id" value="{{ __('Position') }}" />
-            <select id="position_id" name="position_id" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md block mt-1 w-full" wire:model.defer="state.position_id" autocomplete="position_id">
-                @foreach ($jakas as $study_program)
-                    <option value="{{ $study_program->id }}">{{$study_program->jaka}}</option>
-                @endforeach
-            </select>
-            <x-jet-input-error for="position_id" class="mt-2" />
+            <x-jet-label for="position" value="{{ __('Position') }}" />
+            <x-jet-input id="position" type="text" class="mt-1 block w-full" wire:model.defer="state.position" autocomplete="position" />
+            <x-jet-input-error for="position" class="mt-2" />
         </div>
+        @endif
 
+        @if($role == 1)
         <!-- Jaka -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="jaka_id" value="{{ __('Jaka') }}" />
-            <x-jet-input id="jaka_id" type="text" class="mt-1 block w-full" wire:model.defer="state.jaka_id" autocomplete="jaka_id" />
-            <x-jet-input-error for="jaka_id" class="mt-2" />
+            <x-jet-label for="jaka" value="{{ __('Jaka') }}" />
+            <x-jet-input id="jaka" type="text" class="mt-1 block w-full" wire:model.defer="state.jaka" autocomplete="jaka" />
+            <x-jet-input-error for="jaka" class="mt-2" />
         </div>
+        @endif
     </x-slot>
 
     <x-slot name="actions">
