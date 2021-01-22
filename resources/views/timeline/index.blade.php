@@ -13,7 +13,7 @@
                     @endcan
                         @can('admin_timeline_access')
                             <div class="block mb-8">
-                                <a href="{{ route('timeline.history') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">View History</a>
+                                <a href="{{ route('timeline.history') }}" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">View History</a>
                             </div>
                         @endcan
                     <div class="flex flex-col">
