@@ -12,13 +12,7 @@ use Illuminate\Support\Facades\DB;
 class CompanyController extends Controller
 {
     public function company (){
-        $gg = [];
-        $companies = DB::table('company_user')->where('user_id', '=', Auth::id())->get();
-        foreach ($companies as $u)
-        {
-            $gg[] = $u->company_id ;
-        }
-        $company = Company::find($gg);
-        return CompanyResource::collection($company);
+        $companies = Company::with('users')->where('user_id', '=', Auth::id())->get();
+        return CompanyResource::collection($companies);
     }
 }
