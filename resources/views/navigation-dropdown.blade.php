@@ -100,6 +100,11 @@
                         </x-jet-nav-link>
                     </li>
                 @endcan
+                <li class="items-center">
+                    <x-jet-nav-link href="https://drive.google.com/uc?export=download&id=1sWJaEOpJSbbnlB8PKm2yi-kvt60uqxGX">
+                        <i class="fas fa-question opacity-75 mr-2 text-sm"></i>{{ __('Manual Book') }}
+                    </x-jet-nav-link>
+                </li>
             </ul>
         </div>
     </div>
