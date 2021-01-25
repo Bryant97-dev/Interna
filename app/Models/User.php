@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -16,7 +15,6 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
-    use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
@@ -26,7 +24,21 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
+        'study_program_id',
+        'period_id',
+        'nidn',
+        'nip',
+        'nim',
+        'gender',
+        'line_account',
+        'phone',
+        'batch',
+        'description',
+        'position',
+        'jaka',
     ];
 
     /**
@@ -58,4 +70,43 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        self::created(function (User $user) {
+            if (!$user->roles()->get()->contains(2)) {
+                $user->roles()->attach(2);
+            }
+        });
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function periods(){
+        return $this->belongsTo(Period::class, 'period_id', 'id');
+    }
+
+    public function study_programs(){
+        return $this->belongsTo(StudyProgram::class, 'study_program_id', 'id');
+    }
+
+    public function reports() {
+        return $this->hasMany(Report::class, 'user_id', 'id');
+    }
+
+    public function scores() {
+        return $this->hasMany(Score::class, 'user_id', 'id');
+    }
+
+    public function administratives() {
+        return $this->hasMany(Administrative::class, 'user_id', 'id');
+    }
+
+    public function companies() {
+        return $this->hasMany(Company::class, 'user_id', 'id');
+    }
 }
