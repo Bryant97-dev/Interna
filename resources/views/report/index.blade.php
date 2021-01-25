@@ -34,7 +34,7 @@
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
-                                        @foreach ($reports as $report)
+                                        @forelse ($reports as $report)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                     {{ $report->title }}
@@ -72,7 +72,11 @@
                                                     </form>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @empty
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">No Data</td>
+                                            </tr>
+                                        @endforelse
                                         </tbody>
                                     </table>
                                 </div>
