@@ -23,61 +23,33 @@
     @livewireStyles
 </head>
 <body class="text-gray-800 antialiased">
-<nav
-    class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg"
->
-    <div
-        class="container px-4 mx-auto flex flex-wrap items-center justify-between"
-    >
-        <div
-            class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
-        >
-            <a
-                class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white"
-                href="{{ url('/') }}"
-            >Interna</a
-            ><button
-                class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-                type="button"
-                onclick="toggleNavbar('example-collapse-navbar')"
-            >
+<nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
+    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+        <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white" href="{{ url('/') }}">Interna</a>
+            <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
                 <i class="text-white fas fa-bars"></i>
             </button>
         </div>
-        <div
-            class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
-            id="example-collapse-navbar"
-        >
+        <div class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden" id="example-collapse-navbar">
             @if (Route::has('login'))
                 <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
                     @auth
                         <li class="flex items-center">
-                            <a
-                                href="{{ url('/dashboard') }}"
-                                class="bg-blue-600 text-white active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                                style="transition: all 0.15s ease 0s;"
-                            >
+                            <a href="{{ url('/dashboard') }}" class="bg-blue-600 text-white active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3" style="transition: all 0.15s ease 0s;">
                                 <i class="fa fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
                     @else
                         @if (Route::has('register'))
                             <li class="flex items-center">
-                                <a
-                                    href="{{ route('register') }}"
-                                    class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                                    style="transition: all 0.15s ease 0s;"
-                                >
+                                <a href="{{ route('register') }}" class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3" style="transition: all 0.15s ease 0s;">
                                     <i class="fas fa-user-plus"></i> Register
                                 </a>
                             </li>
                         @endif
                         <li class="flex items-center">
-                            <a
-                                href="{{ route('login') }}"
-                                class="bg-green-600 text-white active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                                style="transition: all 0.15s ease 0s;"
-                            >
+                            <a href="{{ route('login') }}" class="bg-green-600 text-white active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3" style="transition: all 0.15s ease 0s;">
                                 <i class="fas fa-sign-in-alt"></i> Login
                             </a>
                         </li>
@@ -88,18 +60,9 @@
     </div>
 </nav>
 <main>
-    <div
-        class="relative pt-16 pb-32 flex content-center items-center justify-center"
-        style="min-height: 75vh;"
-    >
-        <div
-            class="absolute top-0 w-full h-full bg-center bg-cover"
-            style='background-image: url("https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80");'
-        >
-          <span
-              id="blackOverlay"
-              class="w-full h-full absolute opacity-75 bg-black"
-          ></span>
+    <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 75vh;">
+        <div class="absolute top-0 w-full h-full bg-center bg-cover" style='background-image: url("https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80");'>
+          <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
         </div>
         <div class="container relative mx-auto">
             <div class="items-center flex flex-wrap">
@@ -115,60 +78,26 @@
                 </div>
             </div>
         </div>
-        <div
-            class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
-            style="height: 70px; transform: translateZ(0px);"
-        >
-            <svg
-                class="absolute bottom-0 overflow-hidden"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-                version="1.1"
-                viewBox="0 0 2560 100"
-                x="0"
-                y="0"
-            >
-                <polygon
-                    class="text-gray-300 fill-current"
-                    points="2560 0 2560 100 0 100"
-                ></polygon>
+        <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden" style="height: 70px; transform: translateZ(0px);">
+            <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+                <polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
         </div>
     </div>
     <section class="relative py-20">
-        <div
-            class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
-            style="height: 80px; transform: translateZ(0px);"
-        >
-            <svg
-                class="absolute bottom-0 overflow-hidden"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-                version="1.1"
-                viewBox="0 0 2560 100"
-                x="0"
-                y="0"
-            >
-                <polygon
-                    class="text-white fill-current"
-                    points="2560 0 2560 100 0 100"
-                ></polygon>
+        <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20" style="height: 80px; transform: translateZ(0px);">
+            <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+                <polygon class="text-white fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
         </div>
         <div class="container mx-auto px-4">
             <div class="items-center flex flex-wrap">
                 <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
-                    <img
-                        alt="..."
-                        class="max-w-full rounded-lg shadow-lg"
-                        src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80"
-                    />
+                    <img alt="..." class="max-w-full rounded-lg shadow-lg" src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80"/>
                 </div>
                 <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
                     <div class="md:pr-12">
-                        <div
-                            class="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300"
-                        >
+                        <div class="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300">
                             <i class="fas fa-rocket text-xl"></i>
                         </div>
                         <h3 class="text-3xl font-semibold">A growing company</h3>
@@ -181,10 +110,8 @@
                             <li class="py-2">
                                 <div class="flex items-center">
                                     <div>
-                        <span
-                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"
-                        ><i class="fas fa-fingerprint"></i
-                            ></span>
+                                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i class="fas fa-fingerprint"></i>
+                                        </span>
                                     </div>
                                     <div>
                                         <h4 class="text-gray-600">
@@ -196,10 +123,8 @@
                             <li class="py-2">
                                 <div class="flex items-center">
                                     <div>
-                        <span
-                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"
-                        ><i class="fab fa-html5"></i
-                            ></span>
+                                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i class="fab fa-html5"></i>
+                                        </span>
                                     </div>
                                     <div>
                                         <h4 class="text-gray-600">Amazing page examples</h4>
@@ -209,10 +134,8 @@
                             <li class="py-2">
                                 <div class="flex items-center">
                                     <div>
-                        <span
-                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"
-                        ><i class="far fa-paper-plane"></i
-                            ></span>
+                                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i class="far fa-paper-plane"></i>
+                                        </span>
                                     </div>
                                     <div>
                                         <h4 class="text-gray-600">Dynamic components</h4>
@@ -240,23 +163,14 @@
             <div class="flex flex-wrap">
                 <div class="w-full md:w-4/12 lg:w-4/12 lg:mb-0 mb-12 px-4">
                     <div class="px-6">
-                        <img
-                            alt="..."
-                            src="{{ url('assets/landing/assets/img/team-1-800x800.jpg') }}"
-                            class="shadow-lg rounded-full max-w-full mx-auto"
-                            style="max-width: 120px;"
-                        />
+                        <img alt="..." src="{{ url('assets/landing/assets/img/team-1-800x800.jpg') }}" class="shadow-lg rounded-full max-w-full mx-auto" style="max-width: 120px;"/>
                         <div class="pt-6 text-center">
                             <h5 class="text-xl font-bold">Bryant Lee Tjandra</h5>
                             <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
                                 Project Leader
                             </p>
                             <div class="mt-6">
-                                <button
-                                    onclick="window.location.href='https://www.instagram.com/elidrich_lee_/'"
-                                    class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                                    type="button"
-                                >
+                                <button onclick="window.location.href='https://www.instagram.com/elidrich_lee_/'" class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                                     <i class="fab fa-instagram"></i>
                                 </button>
                             </div>
@@ -265,23 +179,14 @@
                 </div>
                 <div class="w-full md:w-4/12 lg:w-4/12 lg:mb-0 mb-12 px-4">
                     <div class="px-6">
-                        <img
-                            alt="..."
-                            src="{{ url('assets/landing/assets/img/team-3-800x800.jpg') }}"
-                            class="shadow-lg rounded-full max-w-full mx-auto"
-                            style="max-width: 120px;"
-                        />
+                        <img alt="..." src="{{ url('assets/landing/assets/img/team-3-800x800.jpg') }}" class="shadow-lg rounded-full max-w-full mx-auto" style="max-width: 120px;"/>
                         <div class="pt-6 text-center">
                             <h5 class="text-xl font-bold">Franciscus Valentinus Ongkosianbhadra</h5>
                             <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
                                 Certified Google IT Support
                             </p>
                             <div class="mt-6">
-                                <button
-                                    onclick="window.location.href='https://www.instagram.com/franciscusvalentinus/'"
-                                    class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                                    type="button"
-                                >
+                                <button onclick="window.location.href='https://www.instagram.com/franciscusvalentinus/'" class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                                     <i class="fab fa-instagram"></i>
                                 </button>
                             </div>
@@ -290,23 +195,14 @@
                 </div>
                 <div class="w-full md:w-4/12 lg:w-4/12 lg:mb-0 mb-12 px-4">
                     <div class="px-6">
-                        <img
-                            alt="..."
-                            src="{{ url('assets/landing/assets/img/team-4-470x470.png') }}"
-                            class="shadow-lg rounded-full max-w-full mx-auto"
-                            style="max-width: 120px;"
-                        />
+                        <img alt="..." src="{{ url('assets/landing/assets/img/team-4-470x470.png') }}" class="shadow-lg rounded-full max-w-full mx-auto" style="max-width: 120px;"/>
                         <div class="pt-6 text-center">
                             <h5 class="text-xl font-bold">Javier</h5>
                             <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
                                 Android Developer
                             </p>
                             <div class="mt-6">
-                                <button
-                                    onclick="window.location.href='https://www.instagram.com/viermhysth_/'"
-                                    class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                                    type="button"
-                                >
+                                <button onclick="window.location.href='https://www.instagram.com/viermhysth_/'" class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                                     <i class="fab fa-instagram"></i>
                                 </button>
                             </div>
@@ -318,23 +214,9 @@
     </section>
 </main>
 <footer class="relative bg-gray-300 pt-8 pb-6">
-    <div
-        class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
-        style="height: 80px; transform: translateZ(0px);"
-    >
-        <svg
-            class="absolute bottom-0 overflow-hidden"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-            version="1.1"
-            viewBox="0 0 2560 100"
-            x="0"
-            y="0"
-        >
-            <polygon
-                class="text-gray-300 fill-current"
-                points="2560 0 2560 100 0 100"
-            ></polygon>
+    <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20" style="height: 80px; transform: translateZ(0px);">
+        <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+            <polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
         </svg>
     </div>
     <div class="container mx-auto px-4">
@@ -345,25 +227,13 @@
                     Find us on any of these platforms, we respond 1-2 business days.
                 </h5>
                 <div class="mt-6">
-                    <button
-                        class="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
-                        type="button"
-                    >
-                        <i class="flex fab fa-twitter"></i></button
-                    ><button
-                        class="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
-                        type="button"
-                    >
-                        <i class="flex fab fa-facebook-square"></i></button
-                    ><button
-                        class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
-                        type="button"
-                    >
-                        <i class="flex fab fa-dribbble"></i></button
-                    ><button
-                        class="bg-white text-gray-900 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
-                        type="button"
-                    >
+                    <button class="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
+                        <i class="flex fab fa-twitter"></i></button>
+                    <button class="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
+                        <i class="flex fab fa-facebook-square"></i></button>
+                    <button class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
+                        <i class="flex fab fa-dribbble"></i></button>
+                    <button class="bg-white text-gray-900 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
                         <i class="flex fab fa-github"></i>
                     </button>
                 </div>
@@ -371,74 +241,36 @@
             <div class="w-full lg:w-6/12 px-4">
                 <div class="flex flex-wrap items-top mb-6">
                     <div class="w-full lg:w-4/12 px-4 ml-auto">
-                <span
-                    class="block uppercase text-gray-600 text-sm font-semibold mb-2"
-                >Useful Links</span
-                >
+                <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Useful Links</span>
                         <ul class="list-unstyled">
                             <li>
-                                <a
-                                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                    href="https://www.creative-tim.com/presentation"
-                                >About Us</a
-                                >
+                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://www.creative-tim.com/presentation">About Us</a>
                             </li>
                             <li>
-                                <a
-                                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                    href="https://blog.creative-tim.com"
-                                >Blog</a
-                                >
+                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://blog.creative-tim.com">Blog</a>
                             </li>
                             <li>
-                                <a
-                                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                    href="https://www.github.com/creativetimofficial"
-                                >Github</a
-                                >
+                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://www.github.com/creativetimofficial">Github</a>
                             </li>
                             <li>
-                                <a
-                                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                    href="https://www.creative-tim.com/bootstrap-themes/free"
-                                >Free Products</a
-                                >
+                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://www.creative-tim.com/bootstrap-themes/free">Free Products</a>
                             </li>
                         </ul>
                     </div>
                     <div class="w-full lg:w-4/12 px-4">
-                <span
-                    class="block uppercase text-gray-600 text-sm font-semibold mb-2"
-                >Other Resources</span
-                >
+                <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Other Resources</span>
                         <ul class="list-unstyled">
                             <li>
-                                <a
-                                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                    href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md"
-                                >MIT License</a
-                                >
+                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md">MIT License</a>
                             </li>
                             <li>
-                                <a
-                                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                    href="https://creative-tim.com/terms"
-                                >Terms &amp; Conditions</a
-                                >
+                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/terms">Terms &amp; Conditions</a>
                             </li>
                             <li>
-                                <a
-                                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                    href="https://creative-tim.com/privacy"
-                                >Privacy Policy</a
-                                >
+                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/privacy">Privacy Policy</a>
                             </li>
                             <li>
-                                <a
-                                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                    href="https://creative-tim.com/contact-us"
-                                >Contact Us</a
-                                >
+                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/contact-us">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -446,17 +278,11 @@
             </div>
         </div>
         <hr class="my-6 border-gray-400" />
-        <div
-            class="flex flex-wrap items-center md:justify-between justify-center"
-        >
+        <div class="flex flex-wrap items-center md:justify-between justify-center">
             <div class="w-full md:w-4/12 px-4 mx-auto text-center">
                 <div class="text-sm text-gray-600 font-semibold py-1">
                     Copyright © 2019 Tailwind Starter Kit by
-                    <a
-                        href="https://www.creative-tim.com"
-                        class="text-gray-600 hover:text-gray-900"
-                    >Creative Tim</a
-                    >.
+                    <a href="https://www.creative-tim.com" class="text-gray-600 hover:text-gray-900">Creative Tim</a>.
                 </div>
             </div>
         </div>
