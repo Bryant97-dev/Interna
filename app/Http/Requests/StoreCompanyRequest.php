@@ -32,25 +32,25 @@ class StoreCompanyRequest extends FormRequest
                 'required', 'string',
             ],
             'email' => [
-                'string',
+                'nullable', 'string',
             ],
             'company_phone' => [
-                'string',
+                'nullable', 'string',
             ],
             'supervisor' => [
                 'required', 'string',
             ],
             'supervisor_phone' => [
-                'string',
+                'nullable', 'string',
             ],
             'npwp' => [
-                'string',
+                'nullable', 'string',
             ],
             'siup' => [
-                'string',
+                'nullable', 'string',
             ],
             'user_id' => [
-                'integer',
+                'required', 'integer',
             ],
         ];
     }

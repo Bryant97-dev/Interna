@@ -28,8 +28,11 @@ class UpdateAdministrativeRequest extends FormRequest
             'title' => [
                 'required', 'string',
             ],
+            'file' => [
+                'nullable',
+            ],
             'description' => [
-                'required', 'string',
+                'nullable', 'string',
             ],
         ];
     }

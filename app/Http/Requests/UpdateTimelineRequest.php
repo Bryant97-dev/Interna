@@ -35,7 +35,7 @@ class UpdateTimelineRequest extends FormRequest
                 'required', 'string',
             ],
             'description' => [
-                'string',
+                'nullable', 'string',
             ],
         ];
     }
