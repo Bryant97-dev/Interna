@@ -28,20 +28,32 @@
     </thead>
     <tbody>
     @php $i=1 @endphp
-    @foreach($period_now as $p)
+    @forelse($period_now as $p)
         <tr>
             <td>{{ $i++ }}</td>
             <td>{{$p->name}}</td>
             <td>{{$p->nim}}</td>
             <td>{{$p->phone}}</td>
-            @foreach ($companies as $c)
+            @forelse ($companies as $c)
                 @if ($p->id == $c->user_id)
                     <td>{{$c->name}}</td>
                     <td>{{$c->address}}</td>
                 @endif
-            @endforeach
+            @empty
+                <td></td>
+                <td></td>
+            @endforelse
         </tr>
-    @endforeach
+    @empty
+        <tr>
+            <td>No Data</td>
+            <td>No Data</td>
+            <td>No Data</td>
+            <td>No Data</td>
+            <td>No Data</td>
+            <td>No Data</td>
+        </tr>
+    @endforelse
     </tbody>
 </table>
 </body>
