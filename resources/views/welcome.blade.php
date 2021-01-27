@@ -93,12 +93,7 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap justify-center text-center mb-24">
                 <div class="w-full lg:w-6/12 px-4">
-                    <h2 class="text-4xl font-semibold">Here are our heroes</h2>
-                    <p class="text-lg leading-relaxed m-4 text-gray-600">
-                        According to the National Oceanic and Atmospheric
-                        Administration, Ted, Scambos, NSIDClead scentist, puts the
-                        potentially record maximum.
-                    </p>
+                    <h2 class="text-4xl font-semibold">Our Team Members</h2>
                 </div>
             </div>
             <div class="flex flex-wrap">
@@ -164,25 +159,19 @@
         <div class="flex flex-wrap">
             <div class="w-full lg:w-6/12 px-4">
                 <h4 class="text-3xl font-semibold">Mudahkan Pencatatan Magangmu !</h4>
-                <h5 class="text-lg mt-0 mb-2 text-gray-700">Bila ada pertanyaan, silahkan email ke <a href="mailto:fvalentinus@student.ciputra.ac.id">fvalentinus@student.ciputra.ac.id</a></h5>
+                <h5 class="text-lg mt-0 mb-2 text-gray-700">Jika ada pertanyaan, hubungi <a href="mailto:fvalentinus@student.ciputra.ac.id">fvalentinus@student.ciputra.ac.id</a></h5>
             </div>
             <div class="w-full lg:w-6/12 px-4">
                 <div class="flex flex-wrap items-top mb-6">
                     <div class="w-full lg:w-4/12 px-4 ml-auto"></div>
                     <div class="w-full lg:w-4/12 px-4">
-                        <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Other Resources</span>
+                        <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Links</span>
                         <ul class="list-unstyled">
                             <li>
-                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md">MIT License</a>
+                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://informatika.uc.ac.id/" target="_blank">Informatika UC</a>
                             </li>
                             <li>
-                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/terms">Terms &amp; Conditions</a>
-                            </li>
-                            <li>
-                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/privacy">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/contact-us">Contact Us</a>
+                                <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://www.uc.ac.id/" target="_blank">Universitas Ciputra</a>
                             </li>
                         </ul>
                     </div>
