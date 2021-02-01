@@ -13,49 +13,66 @@
                                     <table class="min-w-full divide-y divide-gray-200 w-full">
                                         <thead>
                                         <tr>
-                                            <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                No
+                                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Title
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Name
+                                                File Name
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Email
+                                                Description
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Period
+                                                Status
                                             </th>
-                                            <th scope="col" width="100" class="px-6 py-3 bg-gray-50">
+                                            <th scope="col" width="200" class="px-6 py-3 bg-gray-50">
 
                                             </th>
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
-                                        @php $i=1 @endphp
-                                        @forelse ($users as $user)
+                                        @forelse ($reports as $report)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $i++ }}
+                                                    {{ $report->title }}
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->name }}
+                                                    {{ $report->file }}
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->email }}
+                                                    {{ $report->description }}
                                                 </td>
 
-                                                @foreach ($periods as $period)
-                                                    @if ($user->period_id == $period->id)
+                                                @if(empty($report->status))
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                        Pending
+                                                    </td>
+                                                @else
+                                                    @if($report->status == 1)
                                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                            {{ $period->period }}
+                                                            Approved
+                                                        </td>
+                                                    @else
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                            Rejected
                                                         </td>
                                                     @endif
-                                                @endforeach
+                                                @endif
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                    <a href="{{ route('report.show', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">View</a>
+                                                    <a href="/storage/{{ $report->path }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Download</a>
+                                                    <form action={{ route('report.markasapproved', $report->id) }} method="POST">
+                                                        @method('PATCH')
+                                                        @csrf
+                                                        <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Approve</button>
+                                                    </form>
+                                                    <form action={{ route('report.markasrejected', $report->id) }} method="POST">
+                                                        @method('PATCH')
+                                                        @csrf
+                                                        <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Reject</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @empty

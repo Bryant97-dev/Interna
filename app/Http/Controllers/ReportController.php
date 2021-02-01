@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReportRequest;
 use App\Http\Requests\UpdateReportRequest;
+use App\Models\Period;
 use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,10 +29,23 @@ class ReportController extends Controller
         }
 
         if ($au == 1) {
-            $reports = Report::where('status', '=', 0)->get();
-            $users = User::all();
+            $gg = [];
+            $roles = DB::table('role_user')->where('role_id', '=', 2)->get();
+            foreach ($roles as $a)
+            {
+                $gg[] = $a->user_id;
+            }
 
-            return view('admin-report.index', compact('reports', 'users'));
+            $departments = DB::table('interna_study_programs')->where('id', '=', Auth::user()->study_program_id)->get();
+            foreach ($departments as $d)
+            {
+                $wp = $d->id;
+            }
+
+            $users = DB::table('users')->whereIn('id', $gg)->where('study_program_id', '=', $wp)->get();
+            $periods = Period::all();
+
+            return view('admin-report.index', compact('users', 'periods'));
         }
         else {
             $reports = Report::with('users')->where('user_id', '=', Auth::id())->get();
@@ -84,10 +98,12 @@ class ReportController extends Controller
      * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-//    public function show(Report $report)
-//    {
-//        //
-//    }
+    public function show($id)
+    {
+        $reports = Report::where('user_id', '=', $id)->get();
+
+        return view('admin-report.show', compact('reports'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -168,6 +184,6 @@ class ReportController extends Controller
         $report->status = 2;
         $report->save();
 
-        return redirect()->route('administrative.index');
+        return redirect()->route('report.index');
     }
 }
