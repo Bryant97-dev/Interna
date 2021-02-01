@@ -32,11 +32,11 @@ class StoreAdministrativeRequest extends FormRequest
                 'required',
             ],
             'description' => [
-                'required', 'string',
+                'nullable', 'string',
             ],
             'user_id' => [
                 'required', 'integer',
-            ]
+            ],
         ];
     }
 }

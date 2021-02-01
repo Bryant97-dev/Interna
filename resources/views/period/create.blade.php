@@ -11,7 +11,7 @@
                             @csrf
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="period" class="block font-medium text-sm text-gray-700">Period</label>
+                                    <label for="period" class="block font-medium text-sm text-gray-700">Period<label class="text-red-600">*</label></label>
                                     <input type="text" name="period" id="period" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('period', '') }}" />
                                     @error('period')

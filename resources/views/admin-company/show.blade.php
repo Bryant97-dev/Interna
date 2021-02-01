@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        User
+        Company Data
     </x-slot>
     <div class="relative md:pt-32 pb-32 pt-12">
         <div class="px-4 md:px-10 mx-auto w-full">
@@ -13,20 +13,26 @@
                                     <table class="min-w-full divide-y divide-gray-200 w-full">
                                         <thead>
                                         <tr>
-                                            <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                No
-                                            </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Name
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Address
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Email
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Department
+                                                Company Phone
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Roles
+                                                Supervisor
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Supervisor Phone
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
                                             </th>
                                             <th scope="col" width="100" class="px-6 py-3 bg-gray-50">
 
@@ -34,38 +40,58 @@
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
-                                        @forelse ($users as $user)
+                                        @forelse ($companies as $company)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->id }}
+                                                    {{ $company->name }}
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->name }}
+                                                    {{ $company->address }}
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->email }}
+                                                    {{ $company->email }}
                                                 </td>
 
-                                                @foreach ($study_programs as $study_program)
-                                                    @if ($user->study_program_id == $study_program->id)
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $study_program->abbreviation }}
+                                                    {{ $company->company_phone }}
                                                 </td>
+
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    {{ $company->supervisor }}
+                                                </td>
+
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    {{ $company->supervisor_phone }}
+                                                </td>
+
+                                                @if(empty($company->status))
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                        Pending
+                                                    </td>
+                                                @else
+                                                    @if($company->status == 1)
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
+                                                            Approved
+                                                        </td>
+                                                    @else
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">
+                                                            Rejected
+                                                        </td>
                                                     @endif
-                                                @endforeach
-
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    @foreach ($user->roles as $role)
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                            {{ $role->title }}
-                                                        </span>
-                                                    @endforeach
-                                                </td>
-
+                                                @endif
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                    <a href="{{ route('user.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
+                                                    <form action={{ route('company.markasapproved', $company->id) }} method="POST">
+                                                        @method('PATCH')
+                                                        @csrf
+                                                        <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Approve</button>
+                                                    </form>
+                                                    <form action={{ route('company.markasrejected', $company->id) }} method="POST">
+                                                        @method('PATCH')
+                                                        @csrf
+                                                        <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Reject</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @empty

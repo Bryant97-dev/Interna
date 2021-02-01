@@ -11,7 +11,7 @@
                             @csrf
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="date" class="block font-medium text-sm text-gray-700">Date</label>
+                                    <label for="date" class="block font-medium text-sm text-gray-700">Date<label class="text-red-600">*</label></label>
                                     <input type="date" name="date" id="date" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('date', '') }}" />
                                     @error('date')
@@ -20,7 +20,7 @@
                                 </div>
 
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="time" class="block font-medium text-sm text-gray-700">Time</label>
+                                    <label for="time" class="block font-medium text-sm text-gray-700">Time<label class="text-red-600">*</label></label>
                                     <input type="time" name="time" id="time" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('time', '') }}" />
                                     @error('time')
@@ -29,7 +29,7 @@
                                 </div>
 
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="title" class="block font-medium text-sm text-gray-700">Title</label>
+                                    <label for="title" class="block font-medium text-sm text-gray-700">Title<label class="text-red-600">*</label></label>
                                     <input type="text" name="title" id="title" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('title', '') }}" />
                                     @error('title')

@@ -13,61 +13,56 @@
                                     <table class="min-w-full divide-y divide-gray-200 w-full">
                                         <thead>
                                         <tr>
-                                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Title
+                                            <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                No
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                File Name
+                                                Name
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Description
+                                                Email
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                User
+                                                Period
                                             </th>
-                                            <th scope="col" width="200" class="px-6 py-3 bg-gray-50">
+                                            <th scope="col" width="100" class="px-6 py-3 bg-gray-50">
 
                                             </th>
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
-                                        @foreach ($reports as $report)
+                                        @php $i=1 @endphp
+                                        @forelse ($users as $user)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $report->title }}
+                                                    {{ $i++ }}
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $report->file }}
+                                                    {{ $user->name }}
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $report->description }}
+                                                    {{ $user->email }}
                                                 </td>
 
-                                                @foreach ($users as $user)
-                                                    @if ($report->user_id == $user->id)
+                                                @foreach ($periods as $period)
+                                                    @if ($user->period_id == $period->id)
                                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                            {{ $user->name }}
+                                                            {{ $period->period }}
                                                         </td>
                                                     @endif
                                                 @endforeach
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                    <a href="/storage/{{ $report->path }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Download</a>
-                                                    <form action={{ route('report.markasapproved', $report->id) }} method="POST">
-                                                        @method('PATCH')
-                                                        @csrf
-                                                        <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Approve</button>
-                                                    </form>
-                                                    <form action={{ route('report.markasrejected', $report->id) }} method="POST">
-                                                        @method('PATCH')
-                                                        @csrf
-                                                        <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Reject</button>
-                                                    </form>
+                                                    <a href="{{ route('report.show', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">View</a>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @empty
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">No Data</td>
+                                            </tr>
+                                        @endforelse
                                         </tbody>
                                     </table>
                                 </div>

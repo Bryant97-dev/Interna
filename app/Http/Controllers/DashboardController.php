@@ -68,6 +68,7 @@ class DashboardController extends Controller
 
     public function pdf()
     {
+        $gg = [];
         $roles = DB::table('role_user')->where('role_id', '=', 2)->get();
         foreach ($roles as $a)
         {

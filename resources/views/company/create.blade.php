@@ -11,7 +11,7 @@
                             @csrf
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="name" class="block font-medium text-sm text-gray-700">Name</label>
+                                    <label for="name" class="block font-medium text-sm text-gray-700">Name<label class="text-red-600">*</label></label>
                                     <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('name', '') }}" />
                                     @error('name')
@@ -20,7 +20,7 @@
                                 </div>
 
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="address" class="block font-medium text-sm text-gray-700">Address</label>
+                                    <label for="address" class="block font-medium text-sm text-gray-700">Address<label class="text-red-600">*</label></label>
                                     <input type="text" name="address" id="address" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('address', '') }}" />
                                     @error('address')
@@ -47,7 +47,7 @@
                                 </div>
 
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="supervisor" class="block font-medium text-sm text-gray-700">Supervisor</label>
+                                    <label for="supervisor" class="block font-medium text-sm text-gray-700">Supervisor<label class="text-red-600">*</label></label>
                                     <input type="text" name="supervisor" id="supervisor" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('supervisor', '') }}" />
                                     @error('supervisor')

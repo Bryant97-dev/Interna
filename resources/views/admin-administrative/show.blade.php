@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        User
+        Administrative Data
     </x-slot>
     <div class="relative md:pt-32 pb-32 pt-12">
         <div class="px-4 md:px-10 mx-auto w-full">
@@ -13,59 +13,66 @@
                                     <table class="min-w-full divide-y divide-gray-200 w-full">
                                         <thead>
                                         <tr>
-                                            <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                No
+                                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Title
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Name
+                                                File Name
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Email
+                                                Description
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Department
+                                                Status
                                             </th>
-                                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Roles
-                                            </th>
-                                            <th scope="col" width="100" class="px-6 py-3 bg-gray-50">
+                                            <th scope="col" width="200" class="px-6 py-3 bg-gray-50">
 
                                             </th>
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
-                                        @forelse ($users as $user)
+                                        @forelse ($administrative_datas as $administrative_data)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->id }}
+                                                    {{ $administrative_data->title }}
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->name }}
+                                                    {{ $administrative_data->file }}
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->email }}
+                                                    {{ $administrative_data->description }}
                                                 </td>
 
-                                                @foreach ($study_programs as $study_program)
-                                                    @if ($user->study_program_id == $study_program->id)
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $study_program->abbreviation }}
-                                                </td>
+                                                @if(empty($administrative_data->status))
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                        Pending
+                                                    </td>
+                                                @else
+                                                    @if($administrative_data->status == 1)
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
+                                                            Approved
+                                                        </td>
+                                                    @else
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">
+                                                            Rejected
+                                                        </td>
                                                     @endif
-                                                @endforeach
-
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    @foreach ($user->roles as $role)
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                            {{ $role->title }}
-                                                        </span>
-                                                    @endforeach
-                                                </td>
+                                                @endif
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                    <a href="{{ route('user.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
+                                                    <a href="/storage/{{ $administrative_data->path }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Download</a>
+                                                    <form action={{ route('administrative.markasapproved', $administrative_data->id) }} method="POST">
+                                                        @method('PATCH')
+                                                        @csrf
+                                                        <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Approve</button>
+                                                    </form>
+                                                    <form action={{ route('administrative.markasrejected', $administrative_data->id) }} method="POST">
+                                                        @method('PATCH')
+                                                        @csrf
+                                                        <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Reject</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @empty
