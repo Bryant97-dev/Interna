@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAdministrativeRequest;
 use App\Http\Requests\UpdateAdministrativeRequest;
 use App\Models\Administrative;
+use App\Models\Period;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,10 +29,23 @@ class AdministrativeController extends Controller
         }
 
         if ($au == 1) {
-            $administrative_datas = Administrative::where('status', '=', 0)->get();
-            $users = User::all();
+            $gg = [];
+            $roles = DB::table('role_user')->where('role_id', '=', 2)->get();
+            foreach ($roles as $a)
+            {
+                $gg[] = $a->user_id;
+            }
 
-            return view('admin-administrative.index', compact('administrative_datas', 'users'));
+            $departments = DB::table('interna_study_programs')->where('id', '=', Auth::user()->study_program_id)->get();
+            foreach ($departments as $d)
+            {
+                $wp = $d->id;
+            }
+
+            $users = DB::table('users')->whereIn('id', $gg)->where('study_program_id', '=', $wp)->get();
+            $periods = Period::all();
+
+            return view('admin-administrative.index', compact('users', 'periods'));
         }
         else {
             $administrative_datas = Administrative::with('users')->where('user_id', '=', Auth::id())->get();
@@ -84,10 +98,12 @@ class AdministrativeController extends Controller
      * @param  \App\Models\Administrative  $administrative
      * @return \Illuminate\Http\Response
      */
-//    public function show(Administrative $administrative)
-//    {
-//        //
-//    }
+    public function show($id)
+    {
+        $administrative_datas = Administrative::where('user_id', '=', $id)->get();
+
+        return view('admin-administrative.show', compact('administrative_datas'));
+    }
 
     /**
      * Show the form for editing the specified resource.
