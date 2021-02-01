@@ -11,7 +11,7 @@
                             @csrf
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="title" class="block font-medium text-sm text-gray-700">Title</label>
+                                    <label for="title" class="block font-medium text-sm text-gray-700">Title<label class="text-red-600">*</label></label>
                                     <input type="text" name="title" id="title" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('title', '') }}" />
                                     @error('title')
@@ -20,7 +20,7 @@
                                 </div>
 
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="file" class="block font-medium text-sm text-gray-700">File</label>
+                                    <label for="file" class="block font-medium text-sm text-gray-700">File<label class="text-red-600">*</label></label>
                                     <input type="file" name="file" id="file" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                            value="{{ old('file', '') }}" />
                                     @error('file')
