@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
+use App\Models\Period;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,10 +29,23 @@ class CompanyController extends Controller
         }
 
         if ($au == 1) {
-            $companies = Company::where('status', '=', 0)->get();
-            $users = User::all();
+            $gg = [];
+            $roles = DB::table('role_user')->where('role_id', '=', 2)->get();
+            foreach ($roles as $a)
+            {
+                $gg[] = $a->user_id;
+            }
 
-            return view('admin-company.index', compact('companies', 'users'));
+            $departments = DB::table('interna_study_programs')->where('id', '=', Auth::user()->study_program_id)->get();
+            foreach ($departments as $d)
+            {
+                $wp = $d->id;
+            }
+
+            $users = DB::table('users')->whereIn('id', $gg)->where('study_program_id', '=', $wp)->get();
+            $periods = Period::all();
+
+            return view('admin-company.index', compact('users', 'periods'));
         }
         else {
             $id = null;
@@ -106,10 +120,12 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-//    public function show(Company $company)
-//    {
-//        //
-//    }
+    public function show($id)
+    {
+        $companies = Company::where('user_id', '=', $id)->get();
+
+        return view('admin-company.show', compact('companies'));
+    }
 
     /**
      * Show the form for editing the specified resource.
