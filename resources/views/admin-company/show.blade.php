@@ -72,11 +72,11 @@
                                                     </td>
                                                 @else
                                                     @if($company->status == 1)
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
                                                             Approved
                                                         </td>
                                                     @else
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">
                                                             Rejected
                                                         </td>
                                                     @endif
