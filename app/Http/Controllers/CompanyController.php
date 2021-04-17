@@ -172,10 +172,10 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-//    public function destroy(Company $company)
-//    {
-//        //
-//    }
+    public function destroy(Company $company)
+    {
+        //
+    }
 
     public function markasapproved(Company $company)
     {

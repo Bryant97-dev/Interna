@@ -56,10 +56,10 @@ class PeriodController extends Controller
      * @param  \App\Models\Period  $period
      * @return \Illuminate\Http\Response
      */
-//    public function show(Period $period)
-//    {
-//        //
-//    }
+    public function show(Period $period)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.

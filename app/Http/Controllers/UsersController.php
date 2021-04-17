@@ -24,20 +24,20 @@ class UsersController extends Controller
         return view('users.index', compact('users', 'study_programs'));
     }
 
-//    public function create()
-//    {
-//        //
-//    }
+    public function create()
+    {
+        //
+    }
 
-//    public function store(Request $request)
-//    {
-//        //
-//    }
+    public function store(Request $request)
+    {
+        //
+    }
 
-//    public function show(User $user)
-//    {
-//        //
-//    }
+    public function show(User $user)
+    {
+        //
+    }
 
     public function edit(User $user)
     {
@@ -58,8 +58,8 @@ class UsersController extends Controller
         return redirect()->route('user.index');
     }
 
-//    public function destroy(User $user)
-//    {
-//        //
-//    }
+    public function destroy(User $user)
+    {
+        //
+    }
 }
