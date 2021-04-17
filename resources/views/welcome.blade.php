@@ -61,7 +61,7 @@
 </nav>
 <main>
     <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 75vh;">
-        <div class="absolute top-0 w-full h-full bg-center bg-cover" style='background-image: url("https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80");'>
+        <div class="absolute top-0 w-full h-full bg-center bg-cover" style='background-image: url("/assets/dashboard/uc.jpg");'>
           <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
         </div>
         <div class="container relative mx-auto">
@@ -93,7 +93,7 @@
                         <div class="pt-6 text-center">
                             <h5 class="text-xl font-bold">Bryant Lee Tjandra</h5>
                             <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                                Web Developer | Project Leader
+                                Project Manager | Web Developer
                             </p>
                             <div class="mt-6">
                                 <button onclick="window.location.href='https://www.instagram.com/elidrich_lee_/'" class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
@@ -109,7 +109,7 @@
                         <div class="pt-6 text-center">
                             <h5 class="text-xl font-bold">Franciscus Valentinus Ongkosianbhadra</h5>
                             <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                                Full Stack Developer | Google Certified
+                                Full-Stack Developer
                             </p>
                             <div class="mt-6">
                                 <button onclick="window.location.href='https://www.instagram.com/franciscusvalentinus/'" class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
@@ -125,7 +125,7 @@
                         <div class="pt-6 text-center">
                             <h5 class="text-xl font-bold">Javier</h5>
                             <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                                Web Developer | Android Developer
+                                Android Developer | Web Developer
                             </p>
                             <div class="mt-6">
                                 <button onclick="window.location.href='https://www.instagram.com/vireoo_/'" class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
@@ -144,7 +144,7 @@
         <div class="flex flex-wrap">
             <div class="w-full lg:w-6/12 px-4">
                 <h4 class="text-3xl font-semibold">Mudahkan Pencatatan Magangmu !</h4>
-                <h5 class="text-lg mt-0 mb-2 text-gray-700">Jika ada pertanyaan, hubungi <a href="mailto:fvalentinus@student.ciputra.ac.id">fvalentinus@student.ciputra.ac.id</a></h5>
+                <h5 class="text-lg mt-0 mb-2 text-gray-700">Sehingga bisa lebih fokus ke karir magangmu</h5>
             </div>
             <div class="w-full lg:w-6/12 px-4">
                 <div class="flex flex-wrap items-top mb-6">
