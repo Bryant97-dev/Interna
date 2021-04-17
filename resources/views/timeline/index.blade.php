@@ -79,6 +79,12 @@
                                         @empty
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">No Data</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"></td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"></td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"></td>
+                                                @can('admin_timeline_access')
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"></td>
+                                                @endcan
                                             </tr>
                                         @endforelse
                                         </tbody>
